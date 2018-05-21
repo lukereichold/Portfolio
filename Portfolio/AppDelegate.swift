@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Portfolio
-//
-//  Created by Luke Reichold on 4/30/18.
-//  Copyright © 2018 Luke Reichold. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
@@ -13,7 +5,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
