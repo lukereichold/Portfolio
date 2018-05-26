@@ -5,10 +5,11 @@ struct NavigationBarCustomizer {
     static func customize(forController controller: UIViewController) {
         setupSearchButton(for: controller)
         setupMenuButton(for: controller)
-        setupTitle(for: controller)
+//        setupTitle(for: controller)
         makeTransparent(for: controller)
     }
 
+    // TODO: this is now deprecated!
     static func setupTitle(for controller: UIViewController) {
         controller.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.black,

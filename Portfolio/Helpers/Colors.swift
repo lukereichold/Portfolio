@@ -16,5 +16,9 @@ extension UIColor {
         static let buttonNormal = UIColor.black
         static let buttonHighlighted = UIColor(red: 42, green: 122, blue: 194)
     }
+
+    struct FloatingButton {
+        static let buttonNormal = UIColor(red: 42, green: 122, blue: 194)
+    }
 }
 
