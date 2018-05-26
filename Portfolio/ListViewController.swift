@@ -1,5 +1,6 @@
 import UIKit
 import Floaty
+import IoniconsKit
 
 class ListViewController: UIViewController {
 
@@ -24,17 +25,14 @@ class ListViewController: UIViewController {
         let floaty = Floaty()
         floaty.addItem(title: "Hello, World!")
         view.addSubview(floaty)
-        
-        setupNavBar()
+
+        title = "Watchlist"
+        view.backgroundColor = UIColor.HomeScreen.backgroundGrey
+        NavigationBarCustomizer.customize(forController: self)
     }
-
-    private func setupNavBar() {
-        let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
-
-    }
-
 }
+
+
 
 extension ListViewController: UITableViewDelegate {
 

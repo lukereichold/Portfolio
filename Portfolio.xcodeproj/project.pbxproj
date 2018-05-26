@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		74650796888ECC57265B7FD5 /* Pods_PortfolioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B931BCAD5BC5B8D6FC9360 /* Pods_PortfolioTests.framework */; };
 		7E8CCE648DACC492217CF8BA /* Pods_Portfolio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F5D5191C30265A79210043 /* Pods_Portfolio.framework */; };
+		C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */; };
+		C307047720B9DE8B00BEA5B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047620B9DE8B00BEA5B3 /* Colors.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
-		C3AE5BC12097F48C003605F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC02097F48C003605F2 /* ViewController.swift */; };
+		C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC02097F48C003605F2 /* ListViewController.swift */; };
 		C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC22097F48C003605F2 /* Main.storyboard */; };
 		C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC52097F48C003605F2 /* Portfolio.xcdatamodeld */; };
 		C3AE5BC92097F48F003605F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC82097F48F003605F2 /* Assets.xcassets */; };
@@ -37,11 +39,13 @@
 		618A1F3A29AB0B6C1A34ACB9 /* Pods-Portfolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Portfolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-Portfolio/Pods-Portfolio.release.xcconfig"; sourceTree = "<group>"; };
 		77B931BCAD5BC5B8D6FC9360 /* Pods_PortfolioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B389AA89EEC4316AAC11506E /* Pods-PortfolioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioTests/Pods-PortfolioTests.release.xcconfig"; sourceTree = "<group>"; };
+		C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCustomizer.swift; sourceTree = "<group>"; };
+		C307047620B9DE8B00BEA5B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3AE5BC02097F48C003605F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3AE5BC02097F48C003605F2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C3AE5BC32097F48C003605F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3AE5BC62097F48C003605F2 /* Portfolio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Portfolio.xcdatamodel; sourceTree = "<group>"; };
 		C3AE5BC82097F48F003605F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C307047820B9DE9000BEA5B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */,
+				C307047620B9DE8B00BEA5B3 /* Colors.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C39ADD8220B3658300DC70F7 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */,
-				C3AE5BC02097F48C003605F2 /* ViewController.swift */,
+				C3AE5BC02097F48C003605F2 /* ListViewController.swift */,
+				C307047820B9DE9000BEA5B3 /* Helpers */,
 				C39ADD8220B3658300DC70F7 /* Network Layer */,
 				C3AE5BC22097F48C003605F2 /* Main.storyboard */,
 				C3AE5BC82097F48F003605F2 /* Assets.xcassets */,
@@ -300,14 +314,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Portfolio/Pods-Portfolio-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/IoniconsKit/IoniconsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IoniconsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
@@ -324,8 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
+				C307047720B9DE8B00BEA5B3 /* Colors.swift in Sources */,
+				C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */,
 				C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */,
-				C3AE5BC12097F48C003605F2 /* ViewController.swift in Sources */,
+				C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */,
 				C3ED169920B3712D0055290E /* SymbolData.swift in Sources */,
 				C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */,
 				C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */,

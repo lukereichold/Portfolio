@@ -1,4 +1,5 @@
 import Moya
+import Disk
 
 // TODO: should these really be static methods? Only concern is around creating multiple MoyaProviders for every request.
 // TODO: handle errors back from `request` method
@@ -6,11 +7,15 @@ import Moya
 struct NetworkAdapter {
     static let provider = MoyaProvider<StockService>()
 
-    static func fetchAllSymbols(completion: @escaping ([SymbolData]?) -> Void) {
+    static func fetchAllSymbols(persistData: Bool = true,
+                                completion: @escaping ([SymbolData]?) -> Void) {
 
         request(target: .allSymbols,
             success: { (filteredResponse) in
                 let symbols = try? filteredResponse.map([SymbolData].self)
+                if persistData {
+                    try? Disk.save(symbols, to: .caches, as: "allSymbols.json")
+                }
                 completion(symbols)
             }, error: { (error) in
                 completion(nil)
