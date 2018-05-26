@@ -23,33 +23,10 @@ class ListViewController: UIViewController {
 //            }
 //        }
 
-        setTitle("Watchlist")
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
-        NavigationBarCustomizer.customize(forController: self)
+        NavigationBarCustomizer.listSettingsDelegate = self
+        NavigationBarCustomizer.customize(forController: self, title: "Watchlist")
         setupFloatingButton()
-    }
-
-    // TODO: refactor this into the NavigationBarCustomizer or a custom class
-    private func setTitle(_ title: String) {
-        let button = UIButton()
-        let normalTitle = attributedTitle(for: title, color: .black)
-        let highlightedTitle = attributedTitle(for: title, color: UIColor.lightGray)
-
-        button.setAttributedTitle(normalTitle, for: .normal)
-        button.setAttributedTitle(highlightedTitle, for: .highlighted)
-        navigationItem.titleView = button
-    }
-
-    private func attributedTitle(for title: String,
-                                 color: UIColor) -> NSAttributedString {
-        let titleString = NSAttributedString(string: "\(title)  ", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                                                                NSAttributedStringKey.font: UIFont.regularFontOfSize(size: 18)])
-
-        let attributedTitle = NSMutableAttributedString(attributedString: titleString)
-
-        let downString = NSAttributedString(string: String.ionicon(with: .iosArrowDown), attributes: [NSAttributedStringKey.font: UIFont.ionicon(of: 14)])
-        attributedTitle.append(downString)
-        return attributedTitle
     }
 
     private func setupFloatingButton() {
@@ -61,6 +38,31 @@ class ListViewController: UIViewController {
     }
 }
 
+extension ListViewController: NavigationTitleButtonObserver {
+    func titleTapped() {
+        showListMutationActionSheet()
+    }
+
+    private func showListMutationActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: "List 'Wishlist'", preferredStyle: .actionSheet)
+        let saveActionButton = UIAlertAction(title: "Rename...", style: .default)
+        { _ in
+            print("Save")
+        }
+        actionSheet.addAction(saveActionButton)
+
+        let deleteActionButton = UIAlertAction(title: "Delete", style: .destructive)
+        { _ in
+            print("Delete")
+        }
+        actionSheet.addAction(deleteActionButton)
+
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(cancelActionButton)
+
+        navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+}
 
 
 extension ListViewController: UITableViewDelegate {

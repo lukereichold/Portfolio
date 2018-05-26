@@ -1,21 +1,24 @@
 import UIKit
 
-struct NavigationBarCustomizer {
+final class NavigationBarCustomizer {
 
-    static func customize(forController controller: UIViewController) {
+    static weak var listSettingsDelegate: NavigationTitleButtonObserver?
+
+    static func customize(forController controller: UIViewController,
+                          title: String) {
         setupSearchButton(for: controller)
         setupMenuButton(for: controller)
-//        setupTitle(for: controller)
+        setupTitle(title, in: controller)
         makeTransparent(for: controller)
     }
 
-    // TODO: this is now deprecated!
-    static func setupTitle(for controller: UIViewController) {
-        controller.navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.black,
-             NSAttributedStringKey.font: UIFont.regularFontOfSize(size: 18)]
+    private static func setupTitle(_ title: String,
+                                   in controller: UIViewController) {
+        let titleView = NavigationBarTitleView(title: title)
+        titleView.listSettingsObserver = listSettingsDelegate
+        controller.navigationItem.titleView = titleView
     }
-
+    
     static func makeTransparent(for controller: UIViewController) {
         controller.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         controller.navigationController?.navigationBar.shadowImage = UIImage()

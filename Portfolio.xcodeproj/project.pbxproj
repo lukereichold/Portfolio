@@ -12,6 +12,7 @@
 		C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */; };
 		C307047720B9DE8B00BEA5B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047620B9DE8B00BEA5B3 /* Colors.swift */; };
 		C307047A20B9E94900BEA5B3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047920B9E94900BEA5B3 /* Fonts.swift */; };
+		C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCustomizer.swift; sourceTree = "<group>"; };
 		C307047620B9DE8B00BEA5B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C307047920B9E94900BEA5B3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 			children = (
 				C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */,
 				C3AE5BC02097F48C003605F2 /* ListViewController.swift */,
+				C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */,
 				C307047820B9DE9000BEA5B3 /* Helpers */,
 				C39ADD8220B3658300DC70F7 /* Network Layer */,
 				C3AE5BC22097F48C003605F2 /* Main.storyboard */,
@@ -347,6 +350,7 @@
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
 				C307047720B9DE8B00BEA5B3 /* Colors.swift in Sources */,
 				C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */,
+				C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */,
 				C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */,
 				C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */,
 				C3ED169920B3712D0055290E /* SymbolData.swift in Sources */,
