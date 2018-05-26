@@ -11,6 +11,7 @@
 		7E8CCE648DACC492217CF8BA /* Pods_Portfolio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F5D5191C30265A79210043 /* Pods_Portfolio.framework */; };
 		C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */; };
 		C307047720B9DE8B00BEA5B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047620B9DE8B00BEA5B3 /* Colors.swift */; };
+		C307047A20B9E94900BEA5B3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047920B9E94900BEA5B3 /* Fonts.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		B389AA89EEC4316AAC11506E /* Pods-PortfolioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioTests/Pods-PortfolioTests.release.xcconfig"; sourceTree = "<group>"; };
 		C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCustomizer.swift; sourceTree = "<group>"; };
 		C307047620B9DE8B00BEA5B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C307047920B9E94900BEA5B3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */,
 				C307047620B9DE8B00BEA5B3 /* Colors.swift */,
+				C307047920B9E94900BEA5B3 /* Fonts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */,
 				C3ED169920B3712D0055290E /* SymbolData.swift in Sources */,
 				C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */,
+				C307047A20B9E94900BEA5B3 /* Fonts.swift in Sources */,
 				C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
