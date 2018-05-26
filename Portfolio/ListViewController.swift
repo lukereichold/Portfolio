@@ -34,20 +34,21 @@ class ListViewController: UIViewController {
         floaty.plusColor = .clear
         floaty.buttonColor = UIColor.FloatingButton.buttonNormal
         floaty.buttonImage = .ionicon(with: .iosPlusEmpty, textColor: UIColor.white, size: CGSize(width: 38, height: 38))
-        view.addSubview(floaty)
+        floaty.sticky = true
+        tableView.addSubview(floaty)
     }
 }
 
 extension ListViewController: NavigationTitleButtonObserver {
-    func titleTapped() {
-        showListMutationActionSheet()
+    func barTapped(withTitle title: String) {
+        showListMutationActionSheet(forList: title)
     }
 
-    private func showListMutationActionSheet() {
-        let actionSheet = UIAlertController(title: nil, message: "List 'Wishlist'", preferredStyle: .actionSheet)
+    private func showListMutationActionSheet(forList listTitle: String) {
+        let actionSheet = UIAlertController(title: nil, message: "List '\(listTitle)'", preferredStyle: .actionSheet)
         let saveActionButton = UIAlertAction(title: "Rename...", style: .default)
         { _ in
-            print("Save")
+            print("Rename")
         }
         actionSheet.addAction(saveActionButton)
 
