@@ -1,13 +1,14 @@
 PODS:
   - Alamofire (4.7.2)
   - Disk (0.3.3)
-  - Floaty (4.0.0)
+  - Floaty (4.0.1)
   - IoniconsKit (1.0.1)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Piano (1.7)
   - Result (3.2.4)
 
 DEPENDENCIES:
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Floaty (~> 4.0.0)
   - IoniconsKit
   - Moya (~> 11.0)
+  - Piano (~> 1.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -23,16 +25,18 @@ SPEC REPOS:
     - Floaty
     - IoniconsKit
     - Moya
+    - Piano
     - Result
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
-  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
+  Floaty: 82854e1a5ef4fa208281ebd4da2f3d1e51ba67a6
   IoniconsKit: 7662b7b5d5760fd200b76c77bda77c4f5e02c448
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Piano: 857bf066ad5c42298127ebd0936115bc7f5ec89d
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
 
-PODFILE CHECKSUM: d05bcd35e6248ba5e6c6309cdd55b0316a0b23ac
+PODFILE CHECKSUM: 4e627a8cbf53e363a364c8b0e5aedf6df2f05d20
 
 COCOAPODS: 1.5.2

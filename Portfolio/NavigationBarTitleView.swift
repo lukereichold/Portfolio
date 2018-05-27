@@ -26,6 +26,7 @@ final class NavigationBarTitleView: UIButton {
         setAttributedTitle(normalTitle, for: .normal)
         setAttributedTitle(highlightedTitle, for: .highlighted)
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        accessibilityLabel = "List Actions"
     }
 
     @objc private func buttonTapped() {
@@ -35,7 +36,7 @@ final class NavigationBarTitleView: UIButton {
     private func attributedTitle(for title: String,
                                  color: UIColor) -> NSAttributedString {
         let titleString = NSAttributedString(string: "\(title)  ", attributes: [NSAttributedStringKey.foregroundColor: color,
-                                                                                NSAttributedStringKey.font: UIFont.regularFontOfSize(size: 18)])
+                                                                                NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)])
 
         let attributedTitle = NSMutableAttributedString(attributedString: titleString)
 

@@ -1,6 +1,7 @@
 import UIKit
 import Floaty
 import IoniconsKit
+import Piano
 
 class ListViewController: UIViewController {
 
@@ -30,27 +31,34 @@ class ListViewController: UIViewController {
     }
 
     private func setupFloatingButton() {
+        // TODO: add tap recognizer on Floaty and trigger haptic feedback
         let floaty = Floaty()
         floaty.plusColor = .clear
         floaty.buttonColor = UIColor.FloatingButton.buttonNormal
-        floaty.buttonImage = .ionicon(with: .iosPlusEmpty, textColor: UIColor.white, size: CGSize(width: 38, height: 38))
-        floaty.sticky = true
-        tableView.addSubview(floaty)
+        floaty.buttonImage = .ionicon(with: .iosSearch, textColor: .white, size: CGSize(width: 30, height: 30))
+        floaty.friendlyTap = true
+        view.addSubview(floaty)
     }
 }
 
 extension ListViewController: NavigationTitleButtonObserver {
     func barTapped(withTitle title: String) {
+        🎹.play([
+            .hapticFeedback(.impact(.medium))
+            ])
         showListMutationActionSheet(forList: title)
     }
 
     private func showListMutationActionSheet(forList listTitle: String) {
         let actionSheet = UIAlertController(title: nil, message: "List '\(listTitle)'", preferredStyle: .actionSheet)
-        let saveActionButton = UIAlertAction(title: "Rename...", style: .default)
+        let shareButton = UIAlertAction(title: "Share", style: .default, handler: nil)
+        actionSheet.addAction(shareButton)
+
+        let renameButton = UIAlertAction(title: "Rename", style: .default)
         { _ in
             print("Rename")
         }
-        actionSheet.addAction(saveActionButton)
+        actionSheet.addAction(renameButton)
 
         let deleteActionButton = UIAlertAction(title: "Delete", style: .destructive)
         { _ in
@@ -62,6 +70,10 @@ extension ListViewController: NavigationTitleButtonObserver {
         actionSheet.addAction(cancelActionButton)
 
         navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+
+    private func playHaptic() {
+
     }
 }
 
@@ -79,7 +91,9 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
 
+        cell.textLabel?.font = .regularFontOfSize(size: 16)
         cell.textLabel?.text = "Custom row \(indexPath.row)"
+        cell.backgroundColor = .clear
         return cell
     }
 

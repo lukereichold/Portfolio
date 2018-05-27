@@ -10,6 +10,7 @@ target 'Portfolio' do
   pod 'Moya', '~> 11.0'
   pod 'Disk', '~> 0.3.3'
   pod 'IoniconsKit'
+  pod 'Piano', '~> 1.5'
 
   target 'PortfolioTests' do
     inherit! :search_paths
