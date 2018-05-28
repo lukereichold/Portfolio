@@ -1,7 +1,7 @@
 import UIKit
 
 protocol NavigationTitleButtonObserver: class {
-    func barTapped(withTitle title: String)
+    func navigationBarTitleTapped(withTitle title: String)
 }
 
 final class NavigationBarTitleView: UIButton {
@@ -30,7 +30,7 @@ final class NavigationBarTitleView: UIButton {
     }
 
     @objc private func buttonTapped() {
-        listSettingsObserver?.barTapped(withTitle: title)
+        listSettingsObserver?.navigationBarTitleTapped(withTitle: title)
     }
 
     private func attributedTitle(for title: String,

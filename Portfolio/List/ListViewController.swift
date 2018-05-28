@@ -1,9 +1,7 @@
 import UIKit
-import Floaty
-import IoniconsKit
 import Piano
 
-class ListViewController: UIViewController {
+final class ListViewController: UIViewController {
 
     let cellReuseId = "CELL_ID"
     @IBOutlet weak var tableView: UITableView!
@@ -15,7 +13,6 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
-
 
         // always remember to retain this provider somewhere while making requests
 //        NetworkAdapter.fetchAllSymbols { symbols in
@@ -31,21 +28,30 @@ class ListViewController: UIViewController {
     }
 
     private func setupFloatingButton() {
-        // TODO: add tap recognizer on Floaty and trigger haptic feedback
-        let floaty = Floaty()
-        floaty.plusColor = .clear
-        floaty.buttonColor = UIColor.FloatingButton.buttonNormal
-        floaty.buttonImage = .ionicon(with: .iosSearch, textColor: .white, size: CGSize(width: 30, height: 30))
-        floaty.friendlyTap = true
-        view.addSubview(floaty)
+        let searchButton = FloatingButton()
+        searchButton.observer = self
+        view.addSubview(searchButton)
+
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -17),
+            searchButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -17),
+            searchButton.widthAnchor.constraint(equalToConstant: 58),
+            searchButton.heightAnchor.constraint(equalToConstant: 58),
+            ])
+    }
+}
+
+extension ListViewController: FloatingButtonObserver {
+    func buttonTapped() {
+        🎹.play([.hapticFeedback(.impact(.medium))])
+        // haptic is only cool here if I actually push a VC
     }
 }
 
 extension ListViewController: NavigationTitleButtonObserver {
-    func barTapped(withTitle title: String) {
-        🎹.play([
-            .hapticFeedback(.impact(.medium))
-            ])
+    func navigationBarTitleTapped(withTitle title: String) {
+        🎹.play([.hapticFeedback(.impact(.medium))])
         showListMutationActionSheet(forList: title)
     }
 
@@ -70,10 +76,6 @@ extension ListViewController: NavigationTitleButtonObserver {
         actionSheet.addAction(cancelActionButton)
 
         navigationController?.present(actionSheet, animated: true, completion: nil)
-    }
-
-    private func playHaptic() {
-
     }
 }
 
