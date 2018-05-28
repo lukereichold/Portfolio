@@ -23,6 +23,7 @@ final class ListViewController: UIViewController {
 
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         NavigationBarCustomizer.listSettingsDelegate = self
+        NavigationBarCustomizer.listSelectionButtonObserver = self
         NavigationBarCustomizer.customize(forController: self, title: "Watchlist")
         setupFloatingButton()
     }
@@ -45,7 +46,8 @@ final class ListViewController: UIViewController {
 extension ListViewController: FloatingButtonObserver {
     func buttonTapped() {
         🎹.play([.hapticFeedback(.impact(.medium))])
-        // haptic is only cool here if I actually push a VC
+        let searchVC = SymbolSearchViewController()
+        navigationController?.present(searchVC, animated: true, completion: nil)
     }
 }
 
@@ -76,6 +78,14 @@ extension ListViewController: NavigationTitleButtonObserver {
         actionSheet.addAction(cancelActionButton)
 
         navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+}
+
+extension ListViewController: ListSelectionButtonObserver {
+    func listSelectionButtonTapped() {
+        🎹.play([.hapticFeedback(.impact(.medium))])
+        let listSelectionVC = ListSelectionViewController()
+        navigationController?.present(listSelectionVC, animated: true, completion: nil)
     }
 }
 

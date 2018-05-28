@@ -15,6 +15,10 @@
 		C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */; };
 		C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307048820BC547000BEA5B3 /* UIViewController+Extension.swift */; };
 		C307048B20BC550E00BEA5B3 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307048A20BC550E00BEA5B3 /* FloatingButton.swift */; };
+		C37550CE20BC9F59002C637B /* SymbolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550CC20BC9F59002C637B /* SymbolSearchViewController.swift */; };
+		C37550CF20BC9F59002C637B /* SymbolSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37550CD20BC9F59002C637B /* SymbolSearchViewController.xib */; };
+		C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */; };
+		C37550D320BC9FBD002C637B /* ListSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37550D120BC9FBD002C637B /* ListSelectionViewController.xib */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
@@ -49,6 +53,10 @@
 		C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
 		C307048820BC547000BEA5B3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C307048A20BC550E00BEA5B3 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		C37550CC20BC9F59002C637B /* SymbolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSearchViewController.swift; sourceTree = "<group>"; };
+		C37550CD20BC9F59002C637B /* SymbolSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolSearchViewController.xib; sourceTree = "<group>"; };
+		C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
+		C37550D120BC9FBD002C637B /* ListSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSelectionViewController.xib; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				C3AE5BC02097F48C003605F2 /* ListViewController.swift */,
+				C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */,
+				C37550D120BC9FBD002C637B /* ListSelectionViewController.xib */,
+				C37550CC20BC9F59002C637B /* SymbolSearchViewController.swift */,
+				C37550CD20BC9F59002C637B /* SymbolSearchViewController.xib */,
 				C307048D20BC793100BEA5B3 /* Accessory Views */,
 			);
 			path = List;
@@ -284,6 +296,8 @@
 			files = (
 				C3AE5BCC2097F48F003605F2 /* LaunchScreen.storyboard in Resources */,
 				C3AE5BC92097F48F003605F2 /* Assets.xcassets in Resources */,
+				C37550D320BC9FBD002C637B /* ListSelectionViewController.xib in Resources */,
+				C37550CF20BC9F59002C637B /* SymbolSearchViewController.xib in Resources */,
 				C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +386,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
+				C37550CE20BC9F59002C637B /* SymbolSearchViewController.swift in Sources */,
 				C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */,
+				C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */,
 				C307047720B9DE8B00BEA5B3 /* UIColor+Extension.swift in Sources */,
 				C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */,
 				C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */,
