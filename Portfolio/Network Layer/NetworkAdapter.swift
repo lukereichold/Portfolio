@@ -8,14 +8,12 @@ struct NetworkAdapter {
     static let provider = MoyaProvider<StockService>()
 
     static func fetchAllSymbols(persistData: Bool = true,
-                                completion: @escaping ([SymbolData]?) -> Void) {
+                                completion: @escaping ([Stock]?) -> Void) {
 
         request(target: .allSymbols,
             success: { (filteredResponse) in
-                let symbols = try? filteredResponse.map([SymbolData].self)
-                if persistData {
-                    try? Disk.save(symbols, to: .caches, as: "allSymbols.json")
-                }
+                Persistence.saveSymbols(filteredResponse.data)
+                let symbols: [Stock]? = Persistence.allSymbols()
                 completion(symbols)
             }, error: { (error) in
                 completion(nil)

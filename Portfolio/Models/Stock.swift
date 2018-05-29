@@ -2,7 +2,7 @@ import Foundation
 
 typealias Symbol = String
 
-struct SymbolData: Codable {
+struct Stock: Codable {
     let symbol: Symbol
     let name: String
     let isEnabled: Bool

@@ -19,6 +19,8 @@
 		C37550CF20BC9F59002C637B /* SymbolSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37550CD20BC9F59002C637B /* SymbolSearchViewController.xib */; };
 		C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */; };
 		C37550D320BC9FBD002C637B /* ListSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37550D120BC9FBD002C637B /* ListSelectionViewController.xib */; };
+		C37550D520BCF6EC002C637B /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D420BCF6EC002C637B /* List.swift */; };
+		C37550D720BE028C002C637B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D620BE028C002C637B /* Persistence.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
@@ -28,7 +30,7 @@
 		C3AE5BC92097F48F003605F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC82097F48F003605F2 /* Assets.xcassets */; };
 		C3AE5BCC2097F48F003605F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BCA2097F48F003605F2 /* LaunchScreen.storyboard */; };
 		C3AE5BD72097F48F003605F2 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BD62097F48F003605F2 /* PortfolioTests.swift */; };
-		C3ED169920B3712D0055290E /* SymbolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ED169820B3712D0055290E /* SymbolData.swift */; };
+		C3ED169920B3712D0055290E /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ED169820B3712D0055290E /* Stock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		C37550CD20BC9F59002C637B /* SymbolSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolSearchViewController.xib; sourceTree = "<group>"; };
 		C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		C37550D120BC9FBD002C637B /* ListSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSelectionViewController.xib; sourceTree = "<group>"; };
+		C37550D420BCF6EC002C637B /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		C37550D620BE028C002C637B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +74,7 @@
 		C3AE5BD22097F48F003605F2 /* PortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AE5BD62097F48F003605F2 /* PortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTests.swift; sourceTree = "<group>"; };
 		C3AE5BD82097F48F003605F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3ED169820B3712D0055290E /* SymbolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolData.swift; sourceTree = "<group>"; };
+		C3ED169820B3712D0055290E /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		F9F5D5191C30265A79210043 /* Pods_Portfolio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Portfolio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 		C307047820B9DE9000BEA5B3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C37550D620BE028C002C637B /* Persistence.swift */,
 				C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */,
 				C307047620B9DE8B00BEA5B3 /* UIColor+Extension.swift */,
 				C307047920B9E94900BEA5B3 /* UIFont+Extension.swift */,
@@ -152,7 +157,6 @@
 			children = (
 				C39ADD8020B3570E00DC70F7 /* StockService.swift */,
 				C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */,
-				C3ED169720B3711A0055290E /* Models */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -183,6 +187,7 @@
 				C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */,
 				C307048C20BC554200BEA5B3 /* List */,
 				C307047820B9DE9000BEA5B3 /* Helpers */,
+				C3ED169720B3711A0055290E /* Models */,
 				C39ADD8220B3658300DC70F7 /* Network Layer */,
 				C3AE5BC22097F48C003605F2 /* Main.storyboard */,
 				C3AE5BC82097F48F003605F2 /* Assets.xcassets */,
@@ -205,7 +210,8 @@
 		C3ED169720B3711A0055290E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C3ED169820B3712D0055290E /* SymbolData.swift */,
+				C3ED169820B3712D0055290E /* Stock.swift */,
+				C37550D420BCF6EC002C637B /* List.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
+				C37550D720BE028C002C637B /* Persistence.swift in Sources */,
 				C37550CE20BC9F59002C637B /* SymbolSearchViewController.swift in Sources */,
 				C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */,
 				C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */,
@@ -393,8 +400,9 @@
 				C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */,
 				C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */,
 				C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */,
+				C37550D520BCF6EC002C637B /* List.swift in Sources */,
 				C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */,
-				C3ED169920B3712D0055290E /* SymbolData.swift in Sources */,
+				C3ED169920B3712D0055290E /* Stock.swift in Sources */,
 				C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */,
 				C307047A20B9E94900BEA5B3 /* UIFont+Extension.swift in Sources */,
 				C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */,

@@ -14,7 +14,7 @@ final class ListSelectionViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
         tableView.backgroundColor = .clear
         tableView.dataSource = self
-        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.contentInsetAdjustmentBehavior = .never // do we still need this?
 
         pullToDismiss = PullToDismiss(scrollView: tableView, viewController: self, navigationBar: navigationBar)
         pullToDismiss?.backgroundEffect = nil

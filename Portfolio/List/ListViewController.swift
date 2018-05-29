@@ -14,7 +14,7 @@ final class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.backgroundColor = .clear
 
-        // always remember to retain this provider somewhere while making requests
+        // TODO: put this on a background thread
 //        NetworkAdapter.fetchAllSymbols { symbols in
 //            symbols?.forEach {
 //                print($0)
