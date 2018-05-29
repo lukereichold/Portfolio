@@ -1,12 +1,23 @@
 import UIKit
+import PullToDismiss
 
-class ListSelectionViewController: UIViewController {
+final class ListSelectionViewController: UIViewController {
 
+    private let cellReuseId = "ListSelectionCell"
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var closeButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    private var pullToDismiss: PullToDismiss?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.contentInsetAdjustmentBehavior = .never
+
+        pullToDismiss = PullToDismiss(scrollView: tableView, viewController: self, navigationBar: navigationBar)
+        pullToDismiss?.backgroundEffect = nil
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         setupNavBar()
     }
@@ -31,5 +42,21 @@ class ListSelectionViewController: UIViewController {
 
     @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ListSelectionViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
+
+        cell.textLabel?.font = .regularFontOfSize(size: 16)
+        cell.textLabel?.text = "Custom row \(indexPath.row)"
+        cell.backgroundColor = .clear
+        return cell
     }
 }

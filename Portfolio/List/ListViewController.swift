@@ -85,6 +85,7 @@ extension ListViewController: ListSelectionButtonObserver {
     func listSelectionButtonTapped() {
         🎹.play([.hapticFeedback(.impact(.medium))])
         let listSelectionVC = ListSelectionViewController()
+        listSelectionVC.modalPresentationStyle = .overCurrentContext
         navigationController?.present(listSelectionVC, animated: true, completion: nil)
     }
 }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +13,7 @@
             <connections>
                 <outlet property="closeButton" destination="ACv-wo-ZPO" id="759-1m-XKK"/>
                 <outlet property="navigationBar" destination="IgU-iI-nr3" id="tk7-ig-q5B"/>
+                <outlet property="tableView" destination="yXi-DO-XQe" id="PKi-72-gnW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,15 +32,27 @@
                             <barButtonItem key="rightBarButtonItem" title="Item" id="ACv-wo-ZPO"/>
                         </navigationItem>
                     </items>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="yXi-DO-XQe">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IgU-iI-nr3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4lk-fk-7MX"/>
-                <constraint firstItem="IgU-iI-nr3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CQH-og-jTU"/>
-                <constraint firstItem="IgU-iI-nr3" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QrL-Et-002"/>
+                <constraint firstItem="IgU-iI-nr3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="4lk-fk-7MX"/>
+                <constraint firstItem="IgU-iI-nr3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CQH-og-jTU"/>
+                <constraint firstAttribute="trailing" secondItem="yXi-DO-XQe" secondAttribute="trailing" id="Dc3-Tc-TnH"/>
+                <constraint firstItem="IgU-iI-nr3" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="QrL-Et-002"/>
+                <constraint firstItem="yXi-DO-XQe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gju-1z-SiP"/>
+                <constraint firstItem="yXi-DO-XQe" firstAttribute="top" secondItem="IgU-iI-nr3" secondAttribute="bottom" id="hkZ-96-8ff"/>
+                <constraint firstAttribute="bottom" secondItem="yXi-DO-XQe" secondAttribute="bottom" id="zZX-Rt-6lb"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
 </document>

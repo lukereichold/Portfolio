@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C123A74CD9D6CDA27160800BA68B01A"
-               BlueprintName = "Floaty"
+               BlueprintIdentifier = "3FC8E232FC9CA00FF1F94FBAFBC4A55A"
+               BlueprintName = "PullToDismiss"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Floaty.framework">
+               BuildableName = "PullToDismiss.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

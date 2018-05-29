@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "DelegateProxy.h"
 
-FOUNDATION_EXPORT double FloatyVersionNumber;
-FOUNDATION_EXPORT const unsigned char FloatyVersionString[];
+FOUNDATION_EXPORT double PullToDismissVersionNumber;
+FOUNDATION_EXPORT const unsigned char PullToDismissVersionString[];
 

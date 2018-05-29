@@ -6,11 +6,11 @@ target 'Portfolio' do
   use_frameworks!
 
   # Pods for Portfolio
-  pod 'Floaty', '~> 4.0.0'
   pod 'Moya', '~> 11.0'
   pod 'Disk', '~> 0.3.3'
   pod 'IoniconsKit'
   pod 'Piano', '~> 1.5'
+  pod 'PullToDismiss', '~> 2.1'
 
   target 'PortfolioTests' do
     inherit! :search_paths
