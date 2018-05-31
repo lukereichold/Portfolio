@@ -1,4 +1,5 @@
 import UIKit
+import Piano
 import PullToDismiss
 
 final class ListSelectionViewController: UIViewController {
@@ -75,6 +76,7 @@ final class ListSelectionViewController: UIViewController {
     private func addNewList(withTitle title: String) {
         Persistence.createList(withTitle: title)
 
+        🎹.play([.hapticFeedback(.impact(.light))])
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: listData.endIndex - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
@@ -93,6 +95,7 @@ final class ListSelectionViewController: UIViewController {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             let list = self.listData[indexPath.row]
             Persistence.removeList(withUuid: list.uuid)
+            🎹.play([.hapticFeedback(.impact(.light))])
             self.tableView.deleteRows(at: [indexPath], with: .fade)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
