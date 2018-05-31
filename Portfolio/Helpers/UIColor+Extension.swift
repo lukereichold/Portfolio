@@ -12,13 +12,15 @@ extension UIColor {
         static let backgroundGrey = UIColor(white: 249/255.0, alpha: 1)
     }
 
+    static let primaryBlue = UIColor(red: 42, green: 122, blue: 194)
+
     struct NavBar {
         static let buttonNormal = UIColor.black
-        static let buttonHighlighted = UIColor(red: 42, green: 122, blue: 194)
+        static let buttonHighlighted = UIColor.primaryBlue
     }
 
     struct FloatingButton {
-        static let buttonNormal = UIColor(red: 42, green: 122, blue: 194)
+        static let buttonNormal = UIColor.primaryBlue
     }
 }
 

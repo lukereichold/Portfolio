@@ -15,4 +15,18 @@ struct Persistence {
         let symbols = try? Disk.retrieve(all_symbols_path, from: .caches, as: [Stock].self)
         return symbols
     }
+
+    // MARK: - List Management
+
+    static let lists_path = "lists.json"
+
+    static func lists() -> [List]? {
+        let lists = try? Disk.retrieve(lists_path, from: .documents, as: [List].self)
+        return lists
+    }
+
+    static func addList(_ list: List) {
+        try? Disk.append(list, to: lists_path, in: .documents)
+    }
+
 }

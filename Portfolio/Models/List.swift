@@ -2,6 +2,8 @@ import Foundation
 
 struct List: Codable {
     let name: String
-    let symbols: [Stock]
+    let stocks: [Stock]
     let dateCreated: Date
+
+    // TODO: stocks should be mutable
 }

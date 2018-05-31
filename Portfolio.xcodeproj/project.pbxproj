@@ -121,7 +121,6 @@
 		C307047820B9DE9000BEA5B3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C37550D620BE028C002C637B /* Persistence.swift */,
 				C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */,
 				C307047620B9DE8B00BEA5B3 /* UIColor+Extension.swift */,
 				C307047920B9E94900BEA5B3 /* UIFont+Extension.swift */,
@@ -210,6 +209,7 @@
 		C3ED169720B3711A0055290E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C37550D620BE028C002C637B /* Persistence.swift */,
 				C3ED169820B3712D0055290E /* Stock.swift */,
 				C37550D420BCF6EC002C637B /* List.swift */,
 			);

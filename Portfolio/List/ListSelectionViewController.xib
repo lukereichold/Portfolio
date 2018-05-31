@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListSelectionViewController" customModule="Portfolio" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="wGY-Oe-OOL" id="UkH-nx-Cvr"/>
                 <outlet property="closeButton" destination="ACv-wo-ZPO" id="759-1m-XKK"/>
                 <outlet property="navigationBar" destination="IgU-iI-nr3" id="tk7-ig-q5B"/>
                 <outlet property="tableView" destination="yXi-DO-XQe" id="PKi-72-gnW"/>
@@ -29,6 +30,7 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="My Lists" id="x0q-i9-256">
+                            <barButtonItem key="leftBarButtonItem" title="Item" id="wGY-Oe-OOL" userLabel="Add Button"/>
                             <barButtonItem key="rightBarButtonItem" title="Item" id="ACv-wo-ZPO"/>
                         </navigationItem>
                     </items>
