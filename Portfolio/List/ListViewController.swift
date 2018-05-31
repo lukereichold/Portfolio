@@ -62,18 +62,6 @@ extension ListViewController: NavigationTitleButtonObserver {
         let shareButton = UIAlertAction(title: "Share", style: .default, handler: nil)
         actionSheet.addAction(shareButton)
 
-        let renameButton = UIAlertAction(title: "Rename", style: .default)
-        { _ in
-            print("Rename")
-        }
-        actionSheet.addAction(renameButton)
-
-        let deleteActionButton = UIAlertAction(title: "Delete", style: .destructive)
-        { _ in
-            print("Delete")
-        }
-        actionSheet.addAction(deleteActionButton)
-
         let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(cancelActionButton)
 

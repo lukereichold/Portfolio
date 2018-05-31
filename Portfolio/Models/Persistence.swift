@@ -25,8 +25,25 @@ struct Persistence {
         return lists
     }
 
+    static func createList(withTitle title: String) {
+        let newList = List(name: title, stocks: [], dateCreated: Date(), uuid: UUID())
+        addList(newList)
+    }
+
     static func addList(_ list: List) {
         try? Disk.append(list, to: lists_path, in: .documents)
     }
 
+    static func removeList(withUuid uuid: UUID) {
+        let updatedLists = lists()?.filter { $0.uuid != uuid }
+        try? Disk.save(updatedLists, to: .documents, as: lists_path)
+    }
+
+    static func renameList(withUuid uuid: UUID, to newTitle: String) {
+        guard var allLists = lists() else { return }
+        if let index = allLists.index(where: { $0.uuid == uuid }) {
+            allLists[index].name = newTitle
+            try? Disk.save(allLists, to: .documents, as: lists_path)
+        }
+    }
 }
