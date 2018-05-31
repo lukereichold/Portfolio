@@ -14,6 +14,8 @@ final class ListSelectionViewController: UIViewController {
         return Persistence.lists() ?? []
     }
 
+    // MARK: - Setup
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
@@ -58,6 +60,8 @@ final class ListSelectionViewController: UIViewController {
         addButton.accessibilityLabel = "Create new list"
     }
 
+    // MARK: - Actions
+
     @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
@@ -66,6 +70,8 @@ final class ListSelectionViewController: UIViewController {
         showAddListPrompt()
     }
 
+    // MARK: - List Mutation
+
     private func addNewList(withTitle title: String) {
         Persistence.createList(withTitle: title)
 
@@ -73,6 +79,52 @@ final class ListSelectionViewController: UIViewController {
         tableView.insertRows(at: [IndexPath(row: listData.endIndex - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
+
+    private func removeListRequested(at indexPath: IndexPath) {
+        guard listData.count > 1 else {
+            showCannotDeleteListAlert()
+            return
+        }
+        showListRemovalConfirmation(for: indexPath)
+    }
+
+    private func showListRemovalConfirmation(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this list? All symbols you have added to it will be lost.", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            let list = self.listData[indexPath.row]
+            Persistence.removeList(withUuid: list.uuid)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        alert.view.tintColor = .primaryBlue
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func showCannotDeleteListAlert() {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let attributedTitle = NSMutableAttributedString(
+            string: "Cannot remove only list",
+            attributes: [NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)]
+        )
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+
+        let attributedMessage = NSMutableAttributedString(
+            string: "You need at least one list to track symbols. You can rename this list or create a new one.",
+            attributes: [NSAttributedStringKey.font: UIFont.regularFontOfSize(size: 14)]
+        )
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.view.tintColor = .primaryBlue
+        present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: - List Interaction
 
     private func showAddListPrompt() {
 
@@ -146,15 +198,12 @@ extension ListSelectionViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let list = self.listData[indexPath.row]
-            Persistence.removeList(withUuid: list.uuid)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.removeListRequested(at: indexPath)
         }
 
         let rename = UITableViewRowAction(style: .normal, title: "Rename") { (action, indexPath) in
             self.showRenameListPrompt(forIndexPath: indexPath)
         }
-
         rename.backgroundColor = .primaryBlue
 
         return [delete, rename]
