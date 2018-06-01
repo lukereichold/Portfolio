@@ -26,7 +26,8 @@ struct Persistence {
     }
 
     static func createList(withTitle title: String, isSelected: Bool = false) {
-        let newList = List(name: title, isSelected: isSelected)
+        let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        let newList = List(name: trimmedTitle, isSelected: isSelected)
         addList(newList)
     }
 

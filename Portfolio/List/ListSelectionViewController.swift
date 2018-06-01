@@ -143,6 +143,7 @@ final class ListSelectionViewController: UIViewController {
             textField.font = .mediumFontOfSize(size: 16)
             textField.autocorrectionType = .yes
             textField.clearButtonMode = .whileEditing
+            textField.returnKeyType = .done
         }
 
         let createAction = UIAlertAction(title: "Create", style: .default) { (action) in
