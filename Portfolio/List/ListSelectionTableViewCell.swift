@@ -1,7 +1,7 @@
 import UIKit
 import IoniconsKit
 
-class ListSelectionTableViewCell: UITableViewCell {
+final class ListSelectionTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var symbolsCountLabel: UILabel!
@@ -24,7 +24,7 @@ class ListSelectionTableViewCell: UITableViewCell {
         guard let data = list else { return }
         nameLabel.text = data.name
         symbolsCountLabel.text = listCountString(for: data)
-        selectedLabel.isHidden = !(data.isSelected)
+        selectedLabel.isHidden = !data.isSelected
     }
 
     private func listCountString(for list: List) -> String {

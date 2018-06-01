@@ -5,6 +5,7 @@ final class ListViewController: UIViewController {
 
     let cellReuseId = "CELL_ID"
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,13 +14,9 @@ final class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.refreshControl = refreshControl
 
-        // TODO: put this on a background thread
-//        NetworkAdapter.fetchAllSymbols { symbols in
-//            symbols?.forEach {
-//                print($0)
-//            }
-//        }
+        refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
 
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         NavigationBarCustomizer.listSettingsDelegate = self
@@ -30,6 +27,15 @@ final class ListViewController: UIViewController {
 
     private func refresh() {
         NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
+    }
+
+    @objc private func refreshTableData() {
+        NetworkAdapter.fetchAllSymbols { symbols in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
 
     private func setupFloatingButton() {
@@ -50,8 +56,10 @@ final class ListViewController: UIViewController {
 extension ListViewController: FloatingButtonObserver {
     func buttonTapped() {
         🎹.play([.hapticFeedback(.impact(.medium))])
-        let searchVC = SymbolSearchViewController()
-        navigationController?.present(searchVC, animated: true, completion: nil)
+        let symbolSearchVC = storyboard?.instantiateViewController(withIdentifier: "SymbolSearchViewController") as! SymbolSearchViewController
+        symbolSearchVC.modalPresentationStyle = .overCurrentContext
+//        symbolSearchVC = self
+        navigationController?.present(symbolSearchVC, animated: true, completion: nil)
     }
 }
 

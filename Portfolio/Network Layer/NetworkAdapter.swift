@@ -13,7 +13,7 @@ struct NetworkAdapter {
         request(target: .allSymbols,
             success: { (filteredResponse) in
                 Persistence.saveSymbols(filteredResponse.data)
-                let symbols: [Stock]? = Persistence.allSymbols()
+                let symbols: [Stock] = Persistence.allSymbols()
                 completion(symbols)
             }, error: { (error) in
                 completion(nil)

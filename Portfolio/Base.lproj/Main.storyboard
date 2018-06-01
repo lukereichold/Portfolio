@@ -208,8 +208,7 @@
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="My Lists" id="HHM-yJ-JnM">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="6NM-De-o7E" userLabel="Add Button"/>
+                                    <navigationItem title="Quote Lookup" id="HHM-yJ-JnM">
                                         <barButtonItem key="rightBarButtonItem" title="Item" id="6eU-8F-Wlq"/>
                                     </navigationItem>
                                 </items>
@@ -219,77 +218,73 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="grE-2f-XGW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="grE-2f-XGW">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListSelectionTableViewCell" rowHeight="64" id="Kec-pi-4oh" customClass="ListSelectionTableViewCell" customModule="Portfolio" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolSelectionTableViewCell" rowHeight="64" id="Kec-pi-4oh" customClass="SymbolSelectionTableViewCell" customModule="Portfolio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kec-pi-4oh" id="HRm-gU-j61">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My List Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-R6-X3q" userLabel="List name">
-                                                    <rect key="frame" x="15" y="11" width="303" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYMB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-R6-X3q" userLabel="Symbol label">
+                                                    <rect key="frame" x="15" y="11" width="46.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K41-xm-ym7" userLabel="Selected indicator">
-                                                    <rect key="frame" x="318" y="10.5" width="42" height="42.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x symbols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJF-Vm-jwq" userLabel="Symbols count">
-                                                    <rect key="frame" x="15" y="35" width="58" height="18"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJF-Vm-jwq" userLabel="Company label">
+                                                    <rect key="frame" x="15" y="35" width="97.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="K41-xm-ym7" secondAttribute="trailing" id="2rg-tZ-vaN"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lJF-Vm-jwq" secondAttribute="bottom" id="3J0-R4-ZV4"/>
-                                                <constraint firstItem="K41-xm-ym7" firstAttribute="leading" secondItem="GQl-R6-X3q" secondAttribute="trailing" id="P2D-su-lSv"/>
                                                 <constraint firstItem="GQl-R6-X3q" firstAttribute="leading" secondItem="HRm-gU-j61" secondAttribute="leadingMargin" id="Qq2-Ga-Pb5"/>
                                                 <constraint firstItem="lJF-Vm-jwq" firstAttribute="leading" secondItem="HRm-gU-j61" secondAttribute="leadingMargin" id="cMj-X6-NLI"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="K41-xm-ym7" secondAttribute="bottom" id="klY-XM-GW4"/>
                                                 <constraint firstItem="GQl-R6-X3q" firstAttribute="top" secondItem="HRm-gU-j61" secondAttribute="topMargin" id="lc5-63-Z9F"/>
-                                                <constraint firstItem="K41-xm-ym7" firstAttribute="centerY" secondItem="HRm-gU-j61" secondAttribute="centerY" id="qhJ-oJ-2UA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="GQl-R6-X3q" id="PE1-ar-P0Z"/>
-                                            <outlet property="selectedLabel" destination="K41-xm-ym7" id="INS-mp-cyX"/>
-                                            <outlet property="symbolsCountLabel" destination="lJF-Vm-jwq" id="6Td-DV-cnJ"/>
+                                            <outlet property="companyLabel" destination="lJF-Vm-jwq" id="7ux-ET-mWk"/>
+                                            <outlet property="symbolLabel" destination="GQl-R6-X3q" id="uMr-sK-2N0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Start typing a symbol or company..." translatesAutoresizingMaskIntoConstraints="NO" id="vfi-ID-NSo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PTS-x8-lcT" firstAttribute="leading" secondItem="OIH-oq-yqv" secondAttribute="leading" id="3Nw-qs-yfY"/>
+                            <constraint firstAttribute="trailing" secondItem="vfi-ID-NSo" secondAttribute="trailing" id="63s-Ah-9m0"/>
                             <constraint firstItem="grE-2f-XGW" firstAttribute="leading" secondItem="OIH-oq-yqv" secondAttribute="leading" id="6LV-VF-ja2"/>
+                            <constraint firstItem="vfi-ID-NSo" firstAttribute="leading" secondItem="OIH-oq-yqv" secondAttribute="leading" id="7Qy-Hp-0AC"/>
                             <constraint firstItem="WwM-Oi-ZHs" firstAttribute="top" secondItem="grE-2f-XGW" secondAttribute="bottom" id="Bc8-mH-AjT"/>
+                            <constraint firstItem="grE-2f-XGW" firstAttribute="top" secondItem="vfi-ID-NSo" secondAttribute="bottom" id="Df8-zw-EVJ"/>
+                            <constraint firstItem="vfi-ID-NSo" firstAttribute="top" secondItem="PTS-x8-lcT" secondAttribute="bottom" id="HrM-Uz-VOG"/>
                             <constraint firstAttribute="trailing" secondItem="grE-2f-XGW" secondAttribute="trailing" id="Kcr-eK-WdC"/>
                             <constraint firstItem="PTS-x8-lcT" firstAttribute="top" secondItem="OIH-oq-yqv" secondAttribute="top" constant="20" id="U3V-h0-24r"/>
                             <constraint firstAttribute="trailing" secondItem="PTS-x8-lcT" secondAttribute="trailing" id="hSD-my-EBp"/>
-                            <constraint firstItem="grE-2f-XGW" firstAttribute="top" secondItem="PTS-x8-lcT" secondAttribute="bottom" id="zTU-CJ-FnK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="6NM-De-o7E" id="QTW-4n-GbT"/>
                         <outlet property="closeButton" destination="6eU-8F-Wlq" id="BIK-VQ-m71"/>
                         <outlet property="navigationBar" destination="PTS-x8-lcT" id="uRj-Gr-4QB"/>
+                        <outlet property="searchBar" destination="vfi-ID-NSo" id="uoa-vn-4o5"/>
                         <outlet property="tableView" destination="grE-2f-XGW" id="o2m-Ph-MaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v90-tt-XsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1799" y="-226"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="-226.23688155922042"/>
         </scene>
     </scenes>
 </document>

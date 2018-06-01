@@ -23,6 +23,8 @@
 		C37550D720BE028C002C637B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D620BE028C002C637B /* Persistence.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
+		C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */; };
+		C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
 		C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC02097F48C003605F2 /* ListViewController.swift */; };
 		C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC22097F48C003605F2 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		C37550D620BE028C002C637B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3AE5BC02097F48C003605F2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */,
 				C33D407620C0C4A10006F615 /* ListSelectionTableViewCell.swift */,
 				C37550CC20BC9F59002C637B /* SymbolSearchViewController.swift */,
+				C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */,
+				C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */,
 				C307048D20BC793100BEA5B3 /* Accessory Views */,
 			);
 			path = List;
@@ -389,10 +395,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */,
 				C33D407820C0C4A10006F615 /* ListSelectionTableViewCell.swift in Sources */,
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
 				C37550D720BE028C002C637B /* Persistence.swift in Sources */,
 				C37550CE20BC9F59002C637B /* SymbolSearchViewController.swift in Sources */,
+				C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */,
 				C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */,
 				C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */,
 				C307047720B9DE8B00BEA5B3 /* UIColor+Extension.swift in Sources */,

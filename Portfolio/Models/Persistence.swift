@@ -11,9 +11,9 @@ struct Persistence {
         try? Disk.save(symbolData, to: .caches, as: all_symbols_path)
     }
 
-    static func allSymbols() -> [Stock]? {
+    static func allSymbols() -> [Stock] {
         let symbols = try? Disk.retrieve(all_symbols_path, from: .caches, as: [Stock].self)
-        return symbols
+        return symbols ?? []
     }
 
     // MARK: - List Management
