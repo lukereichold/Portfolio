@@ -212,7 +212,24 @@ extension ListSelectionViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64 // TODO WIP
+        return 64
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        🎹.play([.hapticFeedback(.impact(.light))])
+
+        let list = listData[indexPath.row]
+        guard !list.isSelected else { return }
+
+        Persistence.selectList(withUuid: list.uuid)
+
+        // To make the checkmark animate in
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.tableView.endUpdates()
+
+        tableView.reloadData()
     }
 }
 

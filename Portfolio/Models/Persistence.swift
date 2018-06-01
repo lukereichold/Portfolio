@@ -39,6 +39,15 @@ struct Persistence {
         try? Disk.save(updatedLists, to: .documents, as: lists_path)
     }
 
+    static func selectList(withUuid uuid: UUID) {
+        let updatedLists: [List] = lists().map {
+            var list = $0
+            list.isSelected = (list.uuid == uuid)
+            return list
+        }
+        try? Disk.save(updatedLists, to: .documents, as: lists_path)
+    }
+
     static func renameList(withUuid uuid: UUID, to newTitle: String) {
         var allLists = lists()
         if let index = allLists.index(where: { $0.uuid == uuid }) {

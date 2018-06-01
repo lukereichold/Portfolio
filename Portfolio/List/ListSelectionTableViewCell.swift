@@ -3,34 +3,33 @@ import IoniconsKit
 
 class ListSelectionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var symbolsCountLabel: UILabel!
-    @IBOutlet weak var selectedLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var symbolsCountLabel: UILabel!
+    @IBOutlet private weak var selectedLabel: UILabel!
 
     var list: List? {
         didSet {
-//            refreshData()
+            refreshData()
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        selectedLabel.font = .ionicon(of: 28) // blah size
-        selectedLabel.text = .ionicon(with: .iosCheckmark)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // TODO
+        selectedLabel.font = .ionicon(of: 48)
+        selectedLabel.textColor = .primaryBlue
+        selectedLabel.text = .ionicon(with: .iosCheckmarkEmpty)
     }
 
     private func refreshData() {
         guard let data = list else { return }
         nameLabel.text = data.name
-        symbolsCountLabel.text = "\(data.stocks.count) symbols"
+        symbolsCountLabel.text = listCountString(for: data)
         selectedLabel.isHidden = !(data.isSelected)
+    }
+
+    private func listCountString(for list: List) -> String {
+        let token = list.stocks.count == 1 ? "symbol" : "symbols"
+        return "\(list.stocks.count) \(token)"
     }
 
 }
