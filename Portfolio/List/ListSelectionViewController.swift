@@ -12,7 +12,7 @@ final class ListSelectionViewController: UIViewController {
     private var pullToDismiss: PullToDismiss?
 
     private var listData: [List] {
-        return Persistence.lists() ?? []
+        return Persistence.lists()
     }
 
     // MARK: - Setup

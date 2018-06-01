@@ -24,7 +24,7 @@ final class ListViewController: UIViewController {
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         NavigationBarCustomizer.listSettingsDelegate = self
         NavigationBarCustomizer.listSelectionButtonObserver = self
-        NavigationBarCustomizer.customize(forController: self, title: "Watchlist")
+        NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
         setupFloatingButton()
     }
 

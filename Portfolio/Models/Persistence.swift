@@ -20,13 +20,13 @@ struct Persistence {
 
     static let lists_path = "lists.json"
 
-    static func lists() -> [List]? {
+    static func lists() -> [List] {
         let lists = try? Disk.retrieve(lists_path, from: .documents, as: [List].self)
-        return lists
+        return lists ?? []
     }
 
-    static func createList(withTitle title: String) {
-        let newList = List(name: title, stocks: [], dateCreated: Date(), uuid: UUID())
+    static func createList(withTitle title: String, isSelected: Bool = false) {
+        let newList = List(name: title, isSelected: isSelected)
         addList(newList)
     }
 
@@ -35,12 +35,12 @@ struct Persistence {
     }
 
     static func removeList(withUuid uuid: UUID) {
-        let updatedLists = lists()?.filter { $0.uuid != uuid }
+        let updatedLists = lists().filter { $0.uuid != uuid }
         try? Disk.save(updatedLists, to: .documents, as: lists_path)
     }
 
     static func renameList(withUuid uuid: UUID, to newTitle: String) {
-        guard var allLists = lists() else { return }
+        var allLists = lists()
         if let index = allLists.index(where: { $0.uuid == uuid }) {
             allLists[index].name = newTitle
             try? Disk.save(allLists, to: .documents, as: lists_path)

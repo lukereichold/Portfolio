@@ -5,6 +5,21 @@ struct List: Codable {
     var stocks: [Stock]
     let dateCreated: Date
     let uuid: UUID
+    var isSelected: Bool
 
-    // TODO: stocks should be mutable
+    init(name: String,
+         stocks: [Stock] = [],
+         dateCreated: Date = Date(),
+         uuid: UUID = UUID(),
+         isSelected: Bool = false) {
+        self.name = name
+        self.stocks = stocks
+        self.dateCreated = dateCreated
+        self.uuid = uuid
+        self.isSelected = isSelected
+    }
+
+    mutating func toggleSelected() {
+        isSelected = !isSelected
+    }
 }
