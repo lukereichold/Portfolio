@@ -99,9 +99,13 @@ final class ListSelectionViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this list? All symbols you have added to it will be lost.", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             let list = self.listData[indexPath.row]
-            Persistence.removeList(withUuid: list.uuid)
+            Persistence.removeList(list)
+            if list.isSelected {
+                self.observer?.selectedListChanged()
+            }
             🎹.play([.hapticFeedback(.impact(.light))])
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
@@ -180,12 +184,16 @@ final class ListSelectionViewController: UIViewController {
             textField.font = .mediumFontOfSize(size: 16)
             textField.autocorrectionType = .yes
             textField.clearButtonMode = .whileEditing
+            textField.returnKeyType = .done
         }
 
         let renameAction = UIAlertAction(title: "Rename", style: .default) { (action) in
             if let newTitle = renamePrompt.textFields?.first?.text {
                 let list = self.listData[indexPath.row]
                 Persistence.renameList(withUuid: list.uuid, to: newTitle)
+                if list.isSelected {
+                    self.observer?.selectedListChanged()
+                }
 
                 self.tableView.beginUpdates()
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)

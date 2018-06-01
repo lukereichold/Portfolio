@@ -35,8 +35,11 @@ struct Persistence {
         try? Disk.append(list, to: lists_path, in: .documents)
     }
 
-    static func removeList(withUuid uuid: UUID) {
-        let updatedLists = lists().filter { $0.uuid != uuid }
+    static func removeList(_ list: List) {
+        var updatedLists = lists().filter { $0.uuid != list.uuid }
+        if list.isSelected {
+            updatedLists[0].isSelected = true
+        }
         try? Disk.save(updatedLists, to: .documents, as: lists_path)
     }
 
