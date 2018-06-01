@@ -14,21 +14,25 @@ final class SymbolSearchViewController: UIViewController {
         return Persistence.allSymbols()
     }()
 
-    private var filteredStocks: [Stock] {
-        guard let searchQuery = searchBar.text, !searchQuery.isEmpty else {
-            return []
-        }
+    private var filteredStocks = [Stock]()
 
-        return unfilteredStocks.filter { stock in
-            let symbolMatch = stock.symbol.lowercased().contains(searchQuery.lowercased())
-            if symbolMatch {
-                return true
-            } else if stock.name.lowercased().contains(searchQuery.lowercased()) {
-                return true
-            } else {
-                return false
+    private func filterResultsForQuery(_ searchQuery: String) {
+        guard let searchQuery = searchBar.text, !searchQuery.isEmpty else {
+            filteredStocks = []
+            tableView.reloadData()
+            return
+        }
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            self.filteredStocks = self.unfilteredStocks.filter { stock in
+                let lowerCasedQuery = searchQuery.lowercased()
+                let symbolMatch = stock.symbol.lowercased().contains(lowerCasedQuery)
+                let companyMatch = stock.name.lowercased().contains(lowerCasedQuery)
+                return companyMatch || symbolMatch
             }
-//            return companyMatch || symbolMatch
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -44,8 +48,10 @@ final class SymbolSearchViewController: UIViewController {
         pullToDismiss = PullToDismiss(scrollView: tableView, viewController: self, navigationBar: navigationBar)
         pullToDismiss?.delegate = self
         pullToDismiss?.backgroundEffect = nil
-//        _ = unfilteredStocks
-        // Why am i still getting lag on first launch?
+
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            _ = self.unfilteredStocks
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,7 +119,7 @@ extension SymbolSearchViewController: UITableViewDataSource {
 
 extension SymbolSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        tableView.reloadData()
+        filterResultsForQuery(searchText)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
