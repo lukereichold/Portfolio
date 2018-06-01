@@ -24,8 +24,12 @@ final class ListViewController: UIViewController {
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         NavigationBarCustomizer.listSettingsDelegate = self
         NavigationBarCustomizer.listSelectionButtonObserver = self
-        NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
         setupFloatingButton()
+        refresh()
+    }
+
+    private func refresh() {
+        NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
     }
 
     private func setupFloatingButton() {
@@ -74,10 +78,16 @@ extension ListViewController: ListSelectionButtonObserver {
         🎹.play([.hapticFeedback(.impact(.medium))])
         let listSelectionVC = storyboard?.instantiateViewController(withIdentifier: "ListSelectionViewController") as! ListSelectionViewController
         listSelectionVC.modalPresentationStyle = .overCurrentContext
+        listSelectionVC.observer = self
         navigationController?.present(listSelectionVC, animated: true, completion: nil)
     }
 }
 
+extension ListViewController: ListSelectionViewControllerObserver {
+    func selectedListChanged() {
+        refresh()
+    }
+}
 
 extension ListViewController: UITableViewDelegate {
 

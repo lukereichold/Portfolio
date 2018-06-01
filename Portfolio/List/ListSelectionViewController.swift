@@ -2,6 +2,10 @@ import UIKit
 import Piano
 import PullToDismiss
 
+protocol ListSelectionViewControllerObserver: class {
+    func selectedListChanged()
+}
+
 final class ListSelectionViewController: UIViewController {
 
     private let cellReuseId = "ListSelectionTableViewCell"
@@ -10,6 +14,8 @@ final class ListSelectionViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     private var pullToDismiss: PullToDismiss?
+
+    weak var observer: ListSelectionViewControllerObserver?
 
     private var listData: [List] {
         return Persistence.lists()
@@ -224,6 +230,7 @@ extension ListSelectionViewController: UITableViewDelegate {
         guard !list.isSelected else { return }
 
         Persistence.selectList(withUuid: list.uuid)
+        observer?.selectedListChanged()
 
         // To make the checkmark animate in
         self.tableView.beginUpdates()
