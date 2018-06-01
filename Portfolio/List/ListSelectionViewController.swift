@@ -4,7 +4,7 @@ import PullToDismiss
 
 final class ListSelectionViewController: UIViewController {
 
-    private let cellReuseId = "ListSelectionCell"
+    private let cellReuseId = "ListSelectionTableViewCell"
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -19,7 +19,6 @@ final class ListSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
@@ -213,7 +212,7 @@ extension ListSelectionViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50 // TODO WIP
+        return 64 // TODO WIP
     }
 }
 
@@ -228,14 +227,10 @@ extension ListSelectionViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! ListSelectionTableViewCell
 
         let list = listData[indexPath.row]
-        cell.textLabel?.font = .regularFontOfSize(size: 16)
-        cell.textLabel?.text = list.name
-        cell.detailTextLabel?.font = .italicFontOfSize(size: 12)
-        cell.detailTextLabel?.text = "\(list.stocks) symbols"
-        cell.backgroundColor = .clear
+        cell.list = list
         return cell
     }
 }

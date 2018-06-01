@@ -3,8 +3,12 @@ import UIKit
 struct ListManager {
     static func addDefaultList() {
         if Persistence.lists().isEmpty {
-            Persistence.createList(withTitle: "Watchlist", isSelected: true)
+            Persistence.addList(defaultList())
         }
+    }
+
+    static func defaultList() -> List {
+        return List(name: "Watchlist", isSelected: true)
     }
 
     static func currentList() -> List {
