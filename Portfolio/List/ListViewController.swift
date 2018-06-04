@@ -58,8 +58,16 @@ extension ListViewController: FloatingButtonObserver {
         🎹.play([.hapticFeedback(.impact(.medium))])
         let symbolSearchVC = storyboard?.instantiateViewController(withIdentifier: "SymbolSearchViewController") as! SymbolSearchViewController
         symbolSearchVC.modalPresentationStyle = .overCurrentContext
-//        symbolSearchVC = self
+        symbolSearchVC.observer = self
         navigationController?.present(symbolSearchVC, animated: true, completion: nil)
+    }
+}
+
+extension ListViewController: SymbolSearchViewControllerObserver {
+    func launchStockDetailRequested(forStock stock: Stock) {
+        let stockDetailVC = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as! StockDetailViewController
+        stockDetailVC.stock = stock
+        navigationController?.pushViewController(stockDetailVC, animated: true)
     }
 }
 

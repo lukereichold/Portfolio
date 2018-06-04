@@ -20,6 +20,12 @@ final class NavigationBarCustomizer {
         makeTransparent(for: controller)
     }
 
+    static func customizeStockDetailScreen(forController controller: UIViewController,
+                                           title: String) {
+        setupTitle(title, in: controller)
+        makeTransparent(for: controller)
+    }
+
     private static func setupTitle(_ title: String,
                                    in controller: UIViewController) {
         let titleView = NavigationBarTitleView(title: title)

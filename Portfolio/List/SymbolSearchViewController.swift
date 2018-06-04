@@ -1,6 +1,10 @@
 import UIKit
 import PullToDismiss
 
+protocol SymbolSearchViewControllerObserver: class {
+    func launchStockDetailRequested(forStock stock: Stock)
+}
+
 final class SymbolSearchViewController: UIViewController {
 
     private let cellReuseId = "SymbolSelectionTableViewCell"
@@ -8,7 +12,9 @@ final class SymbolSearchViewController: UIViewController {
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var placeholderLabel: UILabel!
     private var pullToDismiss: PullToDismiss?
+    weak var observer: SymbolSearchViewControllerObserver?
 
     private lazy var unfilteredStocks: [Stock] = {
         return Persistence.allSymbols()
@@ -25,8 +31,8 @@ final class SymbolSearchViewController: UIViewController {
         DispatchQueue.global(qos: .background).async { [unowned self] in
             self.filteredStocks = self.unfilteredStocks.filter { stock in
                 let lowerCasedQuery = searchQuery.lowercased()
-                let symbolMatch = stock.symbol.lowercased().contains(lowerCasedQuery)
-                let companyMatch = stock.name.lowercased().contains(lowerCasedQuery)
+                let symbolMatch = stock.symbol.lowercased().starts(with: lowerCasedQuery)
+                let companyMatch = stock.name.lowercased().starts(with: lowerCasedQuery)
                 return companyMatch || symbolMatch
             }
 
@@ -38,6 +44,7 @@ final class SymbolSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.HomeScreen.backgroundGrey
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
@@ -95,6 +102,10 @@ extension SymbolSearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let stock = filteredStocks[indexPath.row]
+        dismiss(animated: false, completion: nil)
+        observer?.launchStockDetailRequested(forStock: stock)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,6 +116,13 @@ extension SymbolSearchViewController: UITableViewDelegate {
 extension SymbolSearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        var showPlaceholder = false
+        if let text = searchBar.text {
+            showPlaceholder = filteredStocks.count == 0 && !text.isEmpty
+        }
+
+        placeholderLabel.isHidden = !showPlaceholder
         return filteredStocks.count
     }
 
