@@ -25,6 +25,8 @@
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */; };
 		C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */; };
+		C39D5A7E20C73F5F0069E75F /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7D20C73F5F0069E75F /* Position.swift */; };
+		C39D5A8020C7444E0069E75F /* ListSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
 		C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC02097F48C003605F2 /* ListViewController.swift */; };
 		C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC22097F48C003605F2 /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		C39D5A7D20C73F5F0069E75F /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionPickerView.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3AE5BC02097F48C003605F2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		C307048D20BC793100BEA5B3 /* Accessory Views */ = {
 			isa = PBXGroup;
 			children = (
+				C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */,
 				C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */,
 				C307048A20BC550E00BEA5B3 /* FloatingButton.swift */,
 			);
@@ -217,6 +222,7 @@
 				C37550D620BE028C002C637B /* Persistence.swift */,
 				C3ED169820B3712D0055290E /* Stock.swift */,
 				C37550D420BCF6EC002C637B /* List.swift */,
+				C39D5A7D20C73F5F0069E75F /* Position.swift */,
 				C33D407420C0C2CA0006F615 /* ListManager.swift */,
 			);
 			path = Models;
@@ -396,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */,
+				C39D5A8020C7444E0069E75F /* ListSelectionPickerView.swift in Sources */,
 				C33D407820C0C4A10006F615 /* ListSelectionTableViewCell.swift in Sources */,
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,
 				C37550D720BE028C002C637B /* Persistence.swift in Sources */,
@@ -409,6 +416,7 @@
 				C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */,
 				C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */,
 				C37550D520BCF6EC002C637B /* List.swift in Sources */,
+				C39D5A7E20C73F5F0069E75F /* Position.swift in Sources */,
 				C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */,
 				C3ED169920B3712D0055290E /* Stock.swift in Sources */,
 				C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */,
