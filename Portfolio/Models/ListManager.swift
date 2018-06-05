@@ -1,7 +1,7 @@
 import UIKit
 
 struct ListManager {
-    static func addDefaultList() {
+    static func addDefaultListIfNeeded() {
         if Persistence.lists().isEmpty {
             Persistence.addList(defaultList())
         }

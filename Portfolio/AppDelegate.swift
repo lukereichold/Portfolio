@@ -1,15 +1,18 @@
 import UIKit
 import CoreData
 
+enum ApplicationShortcutTypes: String {
+    case search = "search"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
 
-        ListManager.addDefaultList()
+        ListManager.addDefaultListIfNeeded()
         return true
     }
 
@@ -17,6 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+
+    // MARK: - Home screen quick action handling
+
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Swift.Void) {
+        handleShortcut(shortcutItem)
+    }
+
+    private func handleShortcut(_ item: UIApplicationShortcutItem) {
+        guard let actionType = ApplicationShortcutTypes(rawValue: item.type) else {
+            return
+        }
+        switch (actionType) {
+        case .search:
+            // TODO: Later handle this
+            break
+        }
     }
 
     // MARK: - Core Data stack
