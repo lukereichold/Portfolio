@@ -31,7 +31,7 @@ final class ListViewController: UIViewController {
 
     @objc private func refreshTableData() {
         NetworkAdapter.fetchAllSymbols { symbols in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -106,21 +106,31 @@ extension ListViewController: ListSelectionViewControllerObserver {
 }
 
 extension ListViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
 }
 
 extension ListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ListManager.currentList().stocks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
 
+        // TODO: use custom cell type
+
+//        let stocks = ListManager.currentList().stocks {
+//            return $0.
+//        }
+
+        let stock = ListManager.currentList().stocks[indexPath.row]
+
         cell.textLabel?.font = .regularFontOfSize(size: 16)
-        cell.textLabel?.text = "Custom row \(indexPath.row)"
-        cell.backgroundColor = .clear
+        cell.textLabel?.text = "foo"
+//        cell.backgroundColor = .clear
         return cell
     }
 

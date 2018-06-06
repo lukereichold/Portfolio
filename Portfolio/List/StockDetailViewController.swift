@@ -3,12 +3,12 @@ import Piano
 
 final class StockDetailViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var listSelectionContainer: UIView!
-
-    private let lists: [List] = Persistence.lists()
-
     @IBOutlet weak var pickerView: UIPickerView!
+
+    private var lists: [List] = Persistence.lists()
 
     var stock: Stock? {
         didSet {
@@ -25,7 +25,14 @@ final class StockDetailViewController: UIViewController {
         listSelectionContainer.layer.shadowRadius = 6
         listSelectionContainer.layer.shadowOpacity = 0.5
 
+        nameLabel.text = stock!.name
+
         pickerView.showsSelectionIndicator = true
+
+        let selectedList = ListManager.currentList()
+        if let defaultListIndex = lists.index(of: selectedList) {
+            pickerView.selectRow(defaultListIndex, inComponent: 0, animated: false)
+        }
     }
 
     private func setup() {
@@ -48,7 +55,15 @@ final class StockDetailViewController: UIViewController {
 
     @IBAction func addToListSubmitTapped(_ sender: Any) {
         toggleListSelectionDrawer()
-        // TODO: READ OFF VALUE from picker, ETC
+
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        // Event this up ....
+
+        // Refactor these 3 lines
+        let list = lists[selectedRow]
+        Persistence.addStockToList(list: list, stock: stock!.iexId)
+        lists = Persistence.lists()
+        pickerView.reloadAllComponents()
     }
 
     @IBAction func addToListCancelTapped(_ sender: Any) {
@@ -70,20 +85,23 @@ final class StockDetailViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-
-    private func addToListSubmitTapped() {
-        toggleListSelectionDrawer()
-    }
 }
 
 extension StockDetailViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+
+        let disableRow = lists[row].stocks.contains(stock!.iexId)
+
         let label = view as? UILabel ?? UILabel()
         label.font = .mediumFontOfSize(size: 20)
         label.textColor = .black
         label.textAlignment = .center
         label.text = lists[row].name
+        if disableRow {
+            label.alpha = 0.2
+            label.text?.append(" (Already added)")
+        }
         return label
     }
 

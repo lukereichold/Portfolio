@@ -14,4 +14,5 @@ struct ListManager {
     static func currentList() -> List {
         return Persistence.lists().first { $0.isSelected }!
     }
+
 }

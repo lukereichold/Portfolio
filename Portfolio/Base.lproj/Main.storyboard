@@ -310,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Positions: ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx7-qO-GMp">
-                                <rect key="frame" x="16" y="82" width="92" height="24"/>
+                                <rect key="frame" x="16" y="109" width="92" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -369,12 +369,21 @@
                                     <constraint firstItem="0Qk-ax-mhv" firstAttribute="leading" secondItem="xaH-VO-LN5" secondAttribute="leading" constant="20" id="wwS-vh-LCV"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name Inc, LLC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiY-Zf-3w6" userLabel="Company name">
+                                <rect key="frame" x="16" y="77" width="343" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.94881184895833337" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xaH-VO-LN5" secondAttribute="trailing" id="DST-mp-FmK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PiY-Zf-3w6" secondAttribute="trailing" id="HBk-Iy-b3X"/>
                             <constraint firstItem="YEj-sP-HVI" firstAttribute="top" secondItem="xaH-VO-LN5" secondAttribute="bottom" id="KXE-wd-6rT"/>
                             <constraint firstItem="xaH-VO-LN5" firstAttribute="leading" secondItem="526-ei-IKh" secondAttribute="leading" id="Z9H-WT-PJ5"/>
+                            <constraint firstItem="PiY-Zf-3w6" firstAttribute="leading" secondItem="526-ei-IKh" secondAttribute="leadingMargin" id="cWe-qI-bQH"/>
+                            <constraint firstItem="PiY-Zf-3w6" firstAttribute="top" secondItem="Qy4-HJ-z3d" secondAttribute="bottom" constant="13" id="rQR-AX-VZf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="esI-rH-HxU"/>
@@ -382,6 +391,7 @@
                     <connections>
                         <outlet property="listSelectionContainer" destination="xaH-VO-LN5" id="Jly-B3-q12"/>
                         <outlet property="listSelectionContainerBottomConstraint" destination="KXE-wd-6rT" id="cFz-47-hjW"/>
+                        <outlet property="nameLabel" destination="PiY-Zf-3w6" id="w5H-Cl-QbT"/>
                         <outlet property="pickerView" destination="rPP-b4-JKB" id="1Ob-ds-t0l"/>
                     </connections>
                 </viewController>

@@ -59,4 +59,12 @@ struct Persistence {
             try? Disk.save(allLists, to: .documents, as: lists_path)
         }
     }
+
+    static func addStockToList(list: List, stock: UniqueStockIdentifier) {
+        var allLists = lists()
+        if let index = allLists.index(where: { $0.uuid == list.uuid }) {
+            allLists[index].addStock(stock)
+            try? Disk.save(allLists, to: .documents, as: lists_path)
+        }
+    }
 }

@@ -1,14 +1,14 @@
 import Foundation
 
-struct List: Codable {
+struct List: Codable, Equatable {
     var name: String
-    var stocks: [Stock]
+    var stocks: [UniqueStockIdentifier]
     let dateCreated: Date
     let uuid: UUID
     var isSelected: Bool
 
     init(name: String,
-         stocks: [Stock] = [],
+         stocks: [UniqueStockIdentifier] = [],
          dateCreated: Date = Date(),
          uuid: UUID = UUID(),
          isSelected: Bool = false) {
@@ -19,7 +19,7 @@ struct List: Codable {
         self.isSelected = isSelected
     }
 
-    mutating func toggleSelected() {
-        isSelected = !isSelected
+    mutating func addStock(_ stockId: UniqueStockIdentifier) {
+        stocks.append(stockId)
     }
 }

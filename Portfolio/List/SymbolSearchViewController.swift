@@ -36,7 +36,7 @@ final class SymbolSearchViewController: UIViewController {
                 return companyMatch || symbolMatch
             }
 
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
             }
         }
