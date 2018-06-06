@@ -7,10 +7,7 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
 
-    // TODO: this is not performant
-    private lazy var stocks: [Stock] = {
-        return ListManager.currentList().stocks
-    }()
+    private lazy var stocks: [Stock] = stocksInCurrentList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,25 +24,26 @@ final class ListViewController: UIViewController {
         NavigationBarCustomizer.listSettingsDelegate = self
         NavigationBarCustomizer.listSelectionButtonObserver = self
         setupFloatingButton()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        refresh()
-    }
-
-    private func refresh() {
         NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
-        // TODO: refresh stocks if needed
+    }
+
+    // MARK: - Private
+
+    private func updateViewForCurrentList() {
+        NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
+        refreshTableData()
     }
 
     @objc private func refreshTableData() {
-        NetworkAdapter.fetchAllSymbols { symbols in
-            DispatchQueue.main.async { [unowned self] in
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }
+        stocks = stocksInCurrentList()
+        DispatchQueue.main.async { [unowned self] in
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
+    }
+
+    private func stocksInCurrentList() -> [Stock] {
+        return ListManager.currentList().stocks
     }
 
     private func setupFloatingButton() {
@@ -61,6 +59,13 @@ final class ListViewController: UIViewController {
             searchButton.heightAnchor.constraint(equalToConstant: 58),
             ])
     }
+
+    private func launchDetailForStock(_ stock: Stock) {
+        let stockDetailVC = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as! StockDetailViewController
+        stockDetailVC.stock = stock
+        stockDetailVC.observer = self
+        navigationController?.pushViewController(stockDetailVC, animated: true)
+    }
 }
 
 extension ListViewController: FloatingButtonObserver {
@@ -75,9 +80,13 @@ extension ListViewController: FloatingButtonObserver {
 
 extension ListViewController: SymbolSearchViewControllerObserver {
     func launchStockDetailRequested(forStock stock: Stock) {
-        let stockDetailVC = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as! StockDetailViewController
-        stockDetailVC.stock = stock
-        navigationController?.pushViewController(stockDetailVC, animated: true)
+        launchDetailForStock(stock)
+    }
+}
+
+extension ListViewController: StockDetailViewControllerObserver {
+    func currentListUpdated() {
+        updateViewForCurrentList()
     }
 }
 
@@ -111,7 +120,7 @@ extension ListViewController: ListSelectionButtonObserver {
 
 extension ListViewController: ListSelectionViewControllerObserver {
     func selectedListChanged() {
-        refresh()
+        updateViewForCurrentList()
     }
 }
 
@@ -124,7 +133,7 @@ extension ListViewController: UITableViewDelegate {
 extension ListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListManager.currentList().stocks.count
+        return stocks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,6 +148,7 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        let stock = stocks[indexPath.row]
+        launchDetailForStock(stock)
     }
 }

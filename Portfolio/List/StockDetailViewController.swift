@@ -1,12 +1,18 @@
 import UIKit
 import Piano
 
+protocol StockDetailViewControllerObserver: class {
+    func currentListUpdated()
+}
+
 final class StockDetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var listSelectionContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
+
+    weak var observer: StockDetailViewControllerObserver?
 
     private var lists: [List] = Persistence.lists()
 
@@ -64,6 +70,10 @@ final class StockDetailViewController: UIViewController {
         Persistence.addStockToList(list: list, stock: stock!)
         lists = Persistence.lists()
         pickerView.reloadAllComponents()
+
+        if list.isSelected {
+            observer?.currentListUpdated()
+        }
     }
 
     @IBAction func addToListCancelTapped(_ sender: Any) {
