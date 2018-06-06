@@ -60,7 +60,7 @@ struct Persistence {
         }
     }
 
-    static func addStockToList(list: List, stock: UniqueStockIdentifier) {
+    static func addStockToList(list: List, stock: Stock) {
         var allLists = lists()
         if let index = allLists.index(where: { $0.uuid == list.uuid }) {
             allLists[index].addStock(stock)

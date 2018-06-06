@@ -13,8 +13,8 @@ struct NetworkAdapter {
         request(target: .allSymbols,
             success: { (filteredResponse) in
                 Persistence.saveSymbols(filteredResponse.data)
-                let symbols: [Stock] = Persistence.allSymbols()
-                completion(symbols)
+                let stocks: [Stock] = Persistence.allSymbols()
+                completion(stocks)
             }, error: { (error) in
                 completion(nil)
             }, failure: { (moyaError) in

@@ -7,6 +7,11 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
 
+    // TODO: this is not performant
+    private lazy var stocks: [Stock] = {
+        return ListManager.currentList().stocks
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,11 +27,16 @@ final class ListViewController: UIViewController {
         NavigationBarCustomizer.listSettingsDelegate = self
         NavigationBarCustomizer.listSelectionButtonObserver = self
         setupFloatingButton()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refresh()
     }
 
     private func refresh() {
         NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
+        // TODO: refresh stocks if needed
     }
 
     @objc private func refreshTableData() {
@@ -122,19 +132,13 @@ extension ListViewController: UITableViewDataSource {
 
         // TODO: use custom cell type
 
-//        let stocks = ListManager.currentList().stocks {
-//            return $0.
-//        }
-
-        let stock = ListManager.currentList().stocks[indexPath.row]
-
+        let stock = stocks[indexPath.row]
         cell.textLabel?.font = .regularFontOfSize(size: 16)
-        cell.textLabel?.text = "foo"
-//        cell.backgroundColor = .clear
+        cell.textLabel?.text = stock.symbol
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO
+    }
 }

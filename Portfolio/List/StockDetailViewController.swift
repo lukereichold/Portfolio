@@ -61,7 +61,7 @@ final class StockDetailViewController: UIViewController {
 
         // Refactor these 3 lines
         let list = lists[selectedRow]
-        Persistence.addStockToList(list: list, stock: stock!.iexId)
+        Persistence.addStockToList(list: list, stock: stock!)
         lists = Persistence.lists()
         pickerView.reloadAllComponents()
     }
@@ -91,7 +91,7 @@ extension StockDetailViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 
-        let disableRow = lists[row].stocks.contains(stock!.iexId)
+        let disableRow = lists[row].stocks.contains(stock!)
 
         let label = view as? UILabel ?? UILabel()
         label.font = .mediumFontOfSize(size: 20)

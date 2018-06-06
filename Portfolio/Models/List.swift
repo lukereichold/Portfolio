@@ -2,13 +2,13 @@ import Foundation
 
 struct List: Codable, Equatable {
     var name: String
-    var stocks: [UniqueStockIdentifier]
+    var stocks: [Stock]
     let dateCreated: Date
     let uuid: UUID
     var isSelected: Bool
 
     init(name: String,
-         stocks: [UniqueStockIdentifier] = [],
+         stocks: [Stock] = [],
          dateCreated: Date = Date(),
          uuid: UUID = UUID(),
          isSelected: Bool = false) {
@@ -19,7 +19,7 @@ struct List: Codable, Equatable {
         self.isSelected = isSelected
     }
 
-    mutating func addStock(_ stockId: UniqueStockIdentifier) {
-        stocks.append(stockId)
+    mutating func addStock(_ stock: Stock) {
+        stocks.append(stock)
     }
 }
