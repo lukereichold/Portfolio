@@ -62,8 +62,16 @@ struct Persistence {
 
     static func addStockToList(list: List, stock: Stock) {
         var allLists = lists()
-        if let index = allLists.index(where: { $0.uuid == list.uuid }) {
+        if let index = allLists.index(of: list) {
             allLists[index].addStock(stock)
+            try? Disk.save(allLists, to: .documents, as: lists_path)
+        }
+    }
+
+    static func removeStockFromList(list: List, stock: Stock) {
+        var allLists = lists()
+        if let index = allLists.index(of: list) {
+            allLists[index].removeStock(stock)
             try? Disk.save(allLists, to: .documents, as: lists_path)
         }
     }

@@ -1,5 +1,6 @@
 import UIKit
 import Piano
+import IoniconsKit
 
 final class ListViewController: UIViewController {
 
@@ -128,6 +129,22 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
     }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { (action, view, handler) in
+            let stock = self.stocks[indexPath.row]
+            🎹.play([.hapticFeedback(.impact(.light))])
+            Persistence.removeStockFromList(list: ListManager.currentList(), stock: stock)
+            handler(true)
+        }
+        deleteAction.backgroundColor = .red
+        deleteAction.image = .ionicon(with: .iosTrash, textColor: .white, size: CGSize(width: 40, height: 40))
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -148,6 +165,8 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         let stock = stocks[indexPath.row]
         launchDetailForStock(stock)
     }

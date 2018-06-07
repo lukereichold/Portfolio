@@ -213,17 +213,20 @@ final class ListSelectionViewController: UIViewController {
 
 extension ListSelectionViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
             self.removeListRequested(at: indexPath)
         }
+        deleteAction.backgroundColor = .red
 
-        let rename = UITableViewRowAction(style: .normal, title: "Rename") { (action, indexPath) in
+        let renameAction = UIContextualAction(style: .normal, title: "Rename") { (action, view, handler) in
             self.showRenameListPrompt(forIndexPath: indexPath)
         }
-        rename.backgroundColor = .primaryBlue
+        renameAction.backgroundColor = .primaryBlue
 
-        return [delete, rename]
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, renameAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -250,10 +253,6 @@ extension ListSelectionViewController: UITableViewDelegate {
 }
 
 extension ListSelectionViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listData.count

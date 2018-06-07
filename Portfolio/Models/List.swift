@@ -1,6 +1,6 @@
 import Foundation
 
-struct List: Codable, Equatable {
+struct List: Codable {
     var name: String
     var stocks: [Stock]
     let dateCreated: Date
@@ -21,5 +21,15 @@ struct List: Codable, Equatable {
 
     mutating func addStock(_ stock: Stock) {
         stocks.append(stock)
+    }
+
+    mutating func removeStock(_ stock: Stock) {
+        stocks = stocks.filter { $0 != stock }
+    }
+}
+
+extension List: Equatable {
+    static func ==(lhs: List, rhs: List) -> Bool {
+        return lhs.uuid == rhs.uuid
     }
 }
