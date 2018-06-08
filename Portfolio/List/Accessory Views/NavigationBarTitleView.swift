@@ -36,7 +36,7 @@ final class NavigationBarTitleView: UIButton {
     private func attributedTitle(for title: String,
                                  color: UIColor) -> NSAttributedString {
         let titleString = NSAttributedString(string: "\(title)  ", attributes: [NSAttributedStringKey.foregroundColor: color,
-                                                                                NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)])
+                                                                                NSAttributedStringKey.font: UIFont.mediumFont(ofSize: 18)])
 
         let attributedTitle = NSMutableAttributedString(attributedString: titleString)
 

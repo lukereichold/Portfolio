@@ -138,10 +138,9 @@ extension ListViewController: UITableViewDelegate {
             handler(true)
         }
         deleteAction.backgroundColor = .red
-        deleteAction.image = .ionicon(with: .iosTrash, textColor: .white, size: CGSize(width: 40, height: 40))
+        deleteAction.image = .ionicon(with: .iosTrash, textColor: .white, size: CGSize(width: 35, height: 35))
 
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
 
@@ -159,7 +158,7 @@ extension ListViewController: UITableViewDataSource {
         // TODO: use custom cell type
 
         let stock = stocks[indexPath.row]
-        cell.textLabel?.font = .regularFontOfSize(size: 16)
+        cell.textLabel?.font = .regularFont(ofSize: 16)
         cell.textLabel?.text = stock.symbol
         return cell
     }

@@ -119,13 +119,13 @@ final class ListSelectionViewController: UIViewController {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let attributedTitle = NSMutableAttributedString(
             string: "Cannot remove only list",
-            attributes: [NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)]
+            attributes: [NSAttributedStringKey.font: UIFont.mediumFont(ofSize: 18)]
         )
         alert.setValue(attributedTitle, forKey: "attributedTitle")
 
         let attributedMessage = NSMutableAttributedString(
             string: "You need at least one list to track symbols. You can rename this list or create a new one.",
-            attributes: [NSAttributedStringKey.font: UIFont.regularFontOfSize(size: 14)]
+            attributes: [NSAttributedStringKey.font: UIFont.regularFont(ofSize: 14)]
         )
         alert.setValue(attributedMessage, forKey: "attributedMessage")
 
@@ -144,13 +144,13 @@ final class ListSelectionViewController: UIViewController {
 
         let attributedTitle = NSMutableAttributedString(
             string: "Create New List",
-            attributes: [NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)]
+            attributes: [NSAttributedStringKey.font: UIFont.mediumFont(ofSize: 18)]
         )
         addPrompt.setValue(attributedTitle, forKey: "attributedTitle")
 
         addPrompt.addTextField { (textField) in
             textField.placeholder = "My Watchlist"
-            textField.font = .mediumFontOfSize(size: 16)
+            textField.font = .mediumFont(ofSize: 16)
             textField.autocorrectionType = .yes
             textField.clearButtonMode = .whileEditing
             textField.returnKeyType = .done
@@ -175,13 +175,13 @@ final class ListSelectionViewController: UIViewController {
 
         let attributedTitle = NSMutableAttributedString(
             string: "Rename List",
-            attributes: [NSAttributedStringKey.font: UIFont.mediumFontOfSize(size: 18)]
+            attributes: [NSAttributedStringKey.font: UIFont.mediumFont(ofSize: 18)]
         )
         renamePrompt.setValue(attributedTitle, forKey: "attributedTitle")
 
         renamePrompt.addTextField { (textField) in
             textField.placeholder = "My Watchlist"
-            textField.font = .mediumFontOfSize(size: 16)
+            textField.font = .mediumFont(ofSize: 16)
             textField.autocorrectionType = .yes
             textField.clearButtonMode = .whileEditing
             textField.returnKeyType = .done

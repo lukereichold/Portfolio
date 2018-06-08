@@ -20,6 +20,7 @@ struct List: Codable {
     }
 
     mutating func addStock(_ stock: Stock) {
+        guard !stocks.contains(stock) else { return }
         stocks.append(stock)
     }
 

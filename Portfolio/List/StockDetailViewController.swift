@@ -9,8 +9,7 @@ final class StockDetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var listSelectionContainer: UIView!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var listSelectionContainer: ListSelectionPickerView!
 
     weak var observer: StockDetailViewControllerObserver?
 
@@ -33,12 +32,9 @@ final class StockDetailViewController: UIViewController {
 
         nameLabel.text = stock!.name
 
-        pickerView.showsSelectionIndicator = true
-
-        let selectedList = ListManager.currentList()
-        if let defaultListIndex = lists.index(of: selectedList) {
-            pickerView.selectRow(defaultListIndex, inComponent: 0, animated: false)
-        }
+        listSelectionContainer.delegate = self
+        listSelectionContainer.lists = lists
+        listSelectionContainer.stock = stock
     }
 
     private func setup() {
@@ -59,27 +55,6 @@ final class StockDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = listButton
     }
 
-    @IBAction func addToListSubmitTapped(_ sender: Any) {
-        toggleListSelectionDrawer()
-
-        let selectedRow = pickerView.selectedRow(inComponent: 0)
-        // Event this up ....
-
-        // Refactor these 3 lines
-        let list = lists[selectedRow]
-        Persistence.addStockToList(list: list, stock: stock!)
-        lists = Persistence.lists()
-        pickerView.reloadAllComponents()
-
-        if list.isSelected {
-            observer?.currentListUpdated()
-        }
-    }
-
-    @IBAction func addToListCancelTapped(_ sender: Any) {
-        toggleListSelectionDrawer()
-    }
-    
     @objc private func toggleListSelectionDrawer() {
         let isClosed = listSelectionContainerBottomConstraint.constant != 0
         if isClosed {
@@ -97,35 +72,18 @@ final class StockDetailViewController: UIViewController {
     }
 }
 
-extension StockDetailViewController: UIPickerViewDelegate {
+extension StockDetailViewController: ListSelectionPickerViewDelegate {
+    func addToListTapped(withList list: List) {
+        toggleListSelectionDrawer()
+        Persistence.addStockToList(list: list, stock: stock!)
+        listSelectionContainer.lists = Persistence.lists()
 
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-
-        let disableRow = lists[row].stocks.contains(stock!)
-
-        let label = view as? UILabel ?? UILabel()
-        label.font = .mediumFontOfSize(size: 20)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.text = lists[row].name
-        if disableRow {
-            label.alpha = 0.2
-            label.text?.append(" (Already added)")
+        if list.isSelected {
+            observer?.currentListUpdated()
         }
-        return label
     }
 
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 45
-    }
-}
-
-extension StockDetailViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return lists.count
+    func dismissTapped() {
+        toggleListSelectionDrawer()
     }
 }

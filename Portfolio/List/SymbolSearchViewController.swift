@@ -76,7 +76,7 @@ final class SymbolSearchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.becomeFirstResponder()
         let textField = searchBar.value(forKey: "searchField") as? UITextField
-        textField?.font = .regularFontOfSize(size: 17)
+        textField?.font = .regularFont(ofSize: 17)
     }
 
     private func setupCloseButton() {
