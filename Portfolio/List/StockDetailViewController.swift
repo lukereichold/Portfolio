@@ -33,8 +33,8 @@ final class StockDetailViewController: UIViewController {
         nameLabel.text = stock!.name
 
         listSelectionContainer.delegate = self
-        listSelectionContainer.lists = lists
         listSelectionContainer.stock = stock
+        listSelectionContainer.lists = lists
     }
 
     private func setup() {

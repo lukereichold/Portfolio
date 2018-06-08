@@ -21,6 +21,9 @@ final class ListSelectionPickerView: UIView {
             let selectedList = ListManager.currentList()
             if let defaultListIndex = lists!.index(of: selectedList) {
                 pickerView.selectRow(defaultListIndex, inComponent: 0, animated: false)
+
+                let disableRow = selectedList.stocks.contains(stock!)
+                addToListButton.isEnabled = !disableRow
             }
         }
     }
@@ -66,6 +69,7 @@ final class ListSelectionPickerView: UIView {
         addToListButton.contentHorizontalAlignment = .right
         addToListButton.setTitle("Add to List", for: .normal)
         addToListButton.setTitleColor(UIColor.primaryBlue, for: .normal)
+        addToListButton.setTitleColor(UIColor.primaryBlue.withAlphaComponent(0.3), for: .disabled)
         addToListButton.addTarget(self, action: #selector(addToListTapped), for: .touchUpInside)
         addSubview(addToListButton)
 
@@ -124,6 +128,14 @@ extension ListSelectionPickerView: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 45
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let lists = lists else { return }
+        guard let stock = stock else { return }
+
+        let disableRow = lists[row].stocks.contains(stock)
+        addToListButton.isEnabled = !disableRow
     }
 }
 
