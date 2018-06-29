@@ -10,6 +10,7 @@ final class StockDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var listSelectionContainer: ListSelectionPickerView!
+    private let addToListButton = UIButton()
 
     weak var observer: StockDetailViewControllerObserver?
 
@@ -41,31 +42,48 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupAddToListButton() {
-        let button = UIButton()
-        button.setTitle(String.ionicon(with: .plusRound), for: .normal)
-        button.titleLabel?.font = .ionicon(of: 28)
-        button.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal)
-        button.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .highlighted)
-        button.addTarget(self, action: #selector(toggleListSelectionDrawer), for: .touchUpInside)
+        addToListButton.setTitle(String.ionicon(with: .plusRound), for: .normal)
+        addToListButton.titleLabel?.font = .ionicon(of: 28)
+        addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .normal)
+        addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .highlighted)
+        addToListButton.addTarget(self, action: #selector(toggleListSelectionDrawer), for: .touchUpInside)
 
-        let listButton = UIBarButtonItem(customView: button)
+        let listButton = UIBarButtonItem(customView: addToListButton)
         listButton.accessibilityLabel = "Add to list"
         navigationItem.rightBarButtonItem = listButton
     }
 
-    // TODO: clean this up
     @objc private func toggleListSelectionDrawer() {
         let isClosed = listSelectionContainerBottomConstraint.constant != 0
         if isClosed {
-            🎹.play([.hapticFeedback(.impact(.medium))])
+            openListSelectionDrawer()
+        } else {
+            closeListSelectionDrawer()
         }
+    }
 
-        var newOffset: CGFloat = 0
-        if !isClosed {
-            newOffset = -listSelectionContainer.frame.height
-        }
+    private func closeListSelectionDrawer() {
+        let offset: CGFloat =  -listSelectionContainer.frame.height
+        addToListButton.titleLabel?.font = .ionicon(of: 28)
+        
         UIView.animate(withDuration: 0.25) {
-            self.listSelectionContainerBottomConstraint.constant = newOffset
+            self.listSelectionContainerBottomConstraint.constant = offset
+            self.addToListButton.setTitle(String.ionicon(with: .plusRound), for: .normal)
+            self.addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .normal) // in animate block?
+            self.addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .highlighted)
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    private func openListSelectionDrawer() {
+        🎹.play([.hapticFeedback(.impact(.medium))])
+        let offset: CGFloat = 0
+        addToListButton.titleLabel?.font = .ionicon(of: 26)
+        UIView.animate(withDuration: 0.25) {
+            self.listSelectionContainerBottomConstraint.constant = offset
+            self.addToListButton.setTitle(String.ionicon(with: .closeRound), for: .normal)
+            self.addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal) // in animate block?
+            self.addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .highlighted)
             self.view.layoutIfNeeded()
         }
     }
