@@ -48,7 +48,8 @@ final class SymbolSearchViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
-        
+
+        title = ""
         setupNavBar()
         setupSearchBar()
 

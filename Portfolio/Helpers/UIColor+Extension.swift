@@ -13,6 +13,7 @@ extension UIColor {
     }
 
     static let primaryBlue = UIColor(red: 42, green: 122, blue: 194)
+    static let darkBlack = UIColor(red: 12, green: 12, blue: 12) // coming soon
 
     struct NavBar {
         static let buttonNormal = UIColor.black

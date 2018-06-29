@@ -27,6 +27,8 @@ final class ListViewController: UIViewController {
         NavigationBarCustomizer.listSelectionButtonObserver = self
         setupFloatingButton()
         NavigationBarCustomizer.customize(forController: self, title: ListManager.currentList().name)
+        navigationController?.navigationBar.tintColor = .darkBlack
+        title = ""
     }
 
     // MARK: - Private

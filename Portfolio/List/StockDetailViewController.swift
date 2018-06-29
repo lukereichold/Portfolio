@@ -23,23 +23,21 @@ final class StockDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         view.backgroundColor = UIColor.HomeScreen.backgroundGrey
-        listSelectionContainerBottomConstraint.constant = -listSelectionContainer.frame.height
-
-        listSelectionContainer.layer.masksToBounds = false
-        listSelectionContainer.layer.shadowOffset = CGSize(width: 1, height: 1)
-        listSelectionContainer.layer.shadowRadius = 6
-        listSelectionContainer.layer.shadowOpacity = 0.5
 
         nameLabel.text = stock!.name
-
-        listSelectionContainer.delegate = self
-        listSelectionContainer.stock = stock
-        listSelectionContainer.lists = lists
+        setupListSelectionContainer()
     }
 
     private func setup() {
         NavigationBarCustomizer.customizeStockDetailScreen(forController: self, title: stock!.symbol)
         setupAddToListButton()
+    }
+
+    private func setupListSelectionContainer() {
+        listSelectionContainerBottomConstraint.constant = -listSelectionContainer.frame.height
+        listSelectionContainer.delegate = self
+        listSelectionContainer.stock = stock
+        listSelectionContainer.lists = lists
     }
 
     private func setupAddToListButton() {
@@ -55,6 +53,7 @@ final class StockDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = listButton
     }
 
+    // TODO: clean this up
     @objc private func toggleListSelectionDrawer() {
         let isClosed = listSelectionContainerBottomConstraint.constant != 0
         if isClosed {
