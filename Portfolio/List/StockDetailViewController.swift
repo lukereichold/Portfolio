@@ -10,7 +10,7 @@ final class StockDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var listSelectionContainer: ListSelectionPickerView!
-    private let addToListButton = UIButton()
+    private let addToListButton = AnimatingPlusButton()
 
     weak var observer: StockDetailViewControllerObserver?
 
@@ -42,12 +42,7 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupAddToListButton() {
-        addToListButton.setTitle(String.ionicon(with: .plusRound), for: .normal)
-        addToListButton.titleLabel?.font = .ionicon(of: 28)
-        addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .normal)
-        addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .highlighted)
-        addToListButton.addTarget(self, action: #selector(toggleListSelectionDrawer), for: .touchUpInside)
-
+        addToListButton.observer = self
         let listButton = UIBarButtonItem(customView: addToListButton)
         listButton.accessibilityLabel = "Add to list"
         navigationItem.rightBarButtonItem = listButton
@@ -63,14 +58,10 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func closeListSelectionDrawer() {
-        let offset: CGFloat =  -listSelectionContainer.frame.height
-        addToListButton.titleLabel?.font = .ionicon(of: 28)
+        let offset: CGFloat = -listSelectionContainer.frame.height
         
         UIView.animate(withDuration: 0.25) {
             self.listSelectionContainerBottomConstraint.constant = offset
-            self.addToListButton.setTitle(String.ionicon(with: .plusRound), for: .normal)
-            self.addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .normal) // in animate block?
-            self.addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .highlighted)
             self.view.layoutIfNeeded()
         }
     }
@@ -78,14 +69,16 @@ final class StockDetailViewController: UIViewController {
     private func openListSelectionDrawer() {
         🎹.play([.hapticFeedback(.impact(.medium))])
         let offset: CGFloat = 0
-        addToListButton.titleLabel?.font = .ionicon(of: 26)
         UIView.animate(withDuration: 0.25) {
             self.listSelectionContainerBottomConstraint.constant = offset
-            self.addToListButton.setTitle(String.ionicon(with: .closeRound), for: .normal)
-            self.addToListButton.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal) // in animate block?
-            self.addToListButton.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .highlighted)
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension StockDetailViewController: PlusButtonObserver {
+    func buttonTapped() {
+        toggleListSelectionDrawer()
     }
 }
 
