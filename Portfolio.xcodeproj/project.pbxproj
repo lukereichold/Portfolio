@@ -21,6 +21,7 @@
 		C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */; };
 		C37550D520BCF6EC002C637B /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D420BCF6EC002C637B /* List.swift */; };
 		C37550D720BE028C002C637B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37550D620BE028C002C637B /* Persistence.swift */; };
+		C39085E120E6D185008040DF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39085E020E6D185008040DF /* UIView+Extension.swift */; };
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 		C37550D020BC9FBD002C637B /* ListSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		C37550D420BCF6EC002C637B /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		C37550D620BE028C002C637B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		C39085E020E6D185008040DF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSelectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				C307047620B9DE8B00BEA5B3 /* UIColor+Extension.swift */,
 				C307047920B9E94900BEA5B3 /* UIFont+Extension.swift */,
 				C307048820BC547000BEA5B3 /* UIViewController+Extension.swift */,
+				C39085E020E6D185008040DF /* UIView+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */,
 				C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */,
 				C307047720B9DE8B00BEA5B3 /* UIColor+Extension.swift in Sources */,
+				C39085E120E6D185008040DF /* UIView+Extension.swift in Sources */,
 				C33D407520C0C2CA0006F615 /* ListManager.swift in Sources */,
 				C307047520B9DA6900BEA5B3 /* NavigationBarCustomizer.swift in Sources */,
 				C307047C20BA06D900BEA5B3 /* NavigationBarTitleView.swift in Sources */,

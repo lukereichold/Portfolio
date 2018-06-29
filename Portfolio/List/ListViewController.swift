@@ -160,7 +160,11 @@ extension ListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let showPlaceholder = stocks.count == 0
-        placeholderLabel.isHidden = !showPlaceholder
+        if showPlaceholder {
+            placeholderLabel.fadeIn(0.2)
+        } else {
+            placeholderLabel.fadeOut(0)
+        }
         return stocks.count
     }
 
