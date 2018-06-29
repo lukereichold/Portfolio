@@ -7,6 +7,7 @@ final class ListViewController: UIViewController {
     let cellReuseId = "CELL_ID"
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
+    @IBOutlet weak var placeholderLabel: UILabel!
 
     private lazy var stocks: [Stock] = stocksInCurrentList()
 
@@ -45,6 +46,14 @@ final class ListViewController: UIViewController {
 
     private func stocksInCurrentList() -> [Stock] {
         return ListManager.currentList().stocks
+    }
+
+    // Show placeholder when list becomes empty (don't need to reload after every removal)
+    private func stockWasRemoved() {
+        stocks = stocksInCurrentList()
+        if stocks.isEmpty {
+            refreshTableData()
+        }
     }
 
     private func setupFloatingButton() {
@@ -136,6 +145,7 @@ extension ListViewController: UITableViewDelegate {
             🎹.play([.hapticFeedback(.impact(.light))])
             Persistence.removeStockFromList(list: ListManager.currentList(), stock: stock)
             handler(true)
+            self.stockWasRemoved()
         }
         deleteAction.backgroundColor = .red
         deleteAction.image = .ionicon(with: .iosTrash, textColor: .white, size: CGSize(width: 35, height: 35))
@@ -149,6 +159,8 @@ extension ListViewController: UITableViewDelegate {
 extension ListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let showPlaceholder = stocks.count == 0
+        placeholderLabel.isHidden = !showPlaceholder
         return stocks.count
     }
 
