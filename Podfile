@@ -11,7 +11,7 @@ target 'Portfolio' do
   pod 'IoniconsKit'
   pod 'Piano', '~> 1.5'
   pod 'PullToDismiss', '~> 2.1'
-
+  pod 'Parchment'
 
   target 'PortfolioTests' do
     inherit! :search_paths

@@ -26,7 +26,7 @@
 		C39ADD8120B3570E00DC70F7 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8020B3570E00DC70F7 /* StockService.swift */; };
 		C39ADD8420B365A500DC70F7 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */; };
 		C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */; };
-		C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */; };
+		C39D5A7C20C1E7FA0069E75F /* StockBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7B20C1E7F90069E75F /* StockBaseViewController.swift */; };
 		C39D5A7E20C73F5F0069E75F /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7D20C73F5F0069E75F /* Position.swift */; };
 		C39D5A8020C7444E0069E75F /* ListSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
@@ -72,7 +72,7 @@
 		C39ADD8020B3570E00DC70F7 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		C39ADD8320B365A500DC70F7 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSelectionTableViewCell.swift; sourceTree = "<group>"; };
-		C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		C39D5A7B20C1E7F90069E75F /* StockBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBaseViewController.swift; sourceTree = "<group>"; };
 		C39D5A7D20C73F5F0069E75F /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionPickerView.swift; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +150,7 @@
 				C33D407620C0C4A10006F615 /* ListSelectionTableViewCell.swift */,
 				C37550CC20BC9F59002C637B /* SymbolSearchViewController.swift */,
 				C39D5A7920C1DDF20069E75F /* SymbolSelectionTableViewCell.swift */,
-				C39D5A7B20C1E7F90069E75F /* StockDetailViewController.swift */,
+				C39D5A7B20C1E7F90069E75F /* StockBaseViewController.swift */,
 				C307048D20BC793100BEA5B3 /* Accessory Views */,
 			);
 			path = List;
@@ -381,6 +381,7 @@
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/IoniconsKit/IoniconsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
 				"${BUILT_PRODUCTS_DIR}/Piano/Piano.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -391,6 +392,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IoniconsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Piano.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -407,7 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C39D5A7C20C1E7FA0069E75F /* StockDetailViewController.swift in Sources */,
+				C39D5A7C20C1E7FA0069E75F /* StockBaseViewController.swift in Sources */,
 				C39D5A8020C7444E0069E75F /* ListSelectionPickerView.swift in Sources */,
 				C33D407820C0C4A10006F615 /* ListSelectionTableViewCell.swift in Sources */,
 				C3AE5BC72097F48C003605F2 /* Portfolio.xcdatamodeld in Sources */,

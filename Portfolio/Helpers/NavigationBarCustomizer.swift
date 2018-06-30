@@ -40,7 +40,7 @@ final class NavigationBarCustomizer {
     }
 
     static func setupMenuButton(for controller: UIViewController) {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         button.setTitle(String.ionicon(with: .iosMoreOutline), for: .normal)
         button.titleLabel?.font = .ionicon(of: 28)
         button.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal)
@@ -51,20 +51,8 @@ final class NavigationBarCustomizer {
         controller.navigationItem.leftBarButtonItem = menuButton
     }
 
-    static func createSearchButton() -> UIBarButtonItem {
-        let button = UIButton()
-        button.setTitle(String.ionicon(with: .iosSearch), for: .normal)
-        button.titleLabel?.font = .ionicon(of: 28)
-        button.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal)
-        button.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .highlighted)
-        
-        let searchButton = UIBarButtonItem(customView: button)
-        searchButton.accessibilityLabel = "Search"
-        return searchButton
-    }
-
     static func createAddListButton() -> UIBarButtonItem {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         button.setTitle(String.ionicon(with: .iosListOutline), for: .normal)
         button.titleLabel?.font = .ionicon(of: 28)
         button.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal)

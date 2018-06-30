@@ -8,7 +8,7 @@ final class AnimatingPlusButton: UIControl {
     weak var observer: PlusButtonObserver?
     private let size = 44
     private let iconView = UILabel()
-    private var buttonStateIsExpanded = false {
+    var buttonStateIsExpanded = false {
         didSet {
             UIView.animate(withDuration: 0.25,
                            delay: 0,

@@ -7,6 +7,7 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Parchment (1.3.0)
   - Piano (1.7)
   - PullToDismiss (2.1)
   - Result (3.2.4)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Disk (~> 0.3.3)
   - IoniconsKit
   - Moya (~> 11.0)
+  - Parchment
   - Piano (~> 1.5)
   - PullToDismiss (~> 2.1)
 
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Disk
     - IoniconsKit
     - Moya
+    - Parchment
     - Piano
     - PullToDismiss
     - Result
@@ -33,10 +36,11 @@ SPEC CHECKSUMS:
   Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
   IoniconsKit: 7662b7b5d5760fd200b76c77bda77c4f5e02c448
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Parchment: 3c84b1fd55182e91b2e0f3bf1e4034c387151a46
   Piano: 857bf066ad5c42298127ebd0936115bc7f5ec89d
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
 
-PODFILE CHECKSUM: 5b2d1c4f5997ef10c182559774ec9054e0dbab5b
+PODFILE CHECKSUM: 0b30aa66fc08e61b880fb3c04a181449f1ac45f7
 
 COCOAPODS: 1.5.2

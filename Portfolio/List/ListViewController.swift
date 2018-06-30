@@ -73,7 +73,7 @@ final class ListViewController: UIViewController {
     }
 
     private func launchDetailForStock(_ stock: Stock) {
-        let stockDetailVC = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as! StockDetailViewController
+        let stockDetailVC = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as! StockBaseViewController
         stockDetailVC.stock = stock
         stockDetailVC.observer = self
         navigationController?.pushViewController(stockDetailVC, animated: true)

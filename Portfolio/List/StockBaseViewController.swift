@@ -5,7 +5,7 @@ protocol StockDetailViewControllerObserver: class {
     func currentListUpdated()
 }
 
-final class StockDetailViewController: UIViewController {
+final class StockBaseViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var listSelectionContainerBottomConstraint: NSLayoutConstraint!
@@ -59,7 +59,7 @@ final class StockDetailViewController: UIViewController {
 
     private func closeListSelectionDrawer() {
         let offset: CGFloat = -listSelectionContainer.frame.height
-        
+        addToListButton.buttonStateIsExpanded = false
         UIView.animate(withDuration: 0.25) {
             self.listSelectionContainerBottomConstraint.constant = offset
             self.view.layoutIfNeeded()
@@ -76,13 +76,13 @@ final class StockDetailViewController: UIViewController {
     }
 }
 
-extension StockDetailViewController: PlusButtonObserver {
+extension StockBaseViewController: PlusButtonObserver {
     func buttonTapped() {
         toggleListSelectionDrawer()
     }
 }
 
-extension StockDetailViewController: ListSelectionPickerViewDelegate {
+extension StockBaseViewController: ListSelectionPickerViewDelegate {
     func addToListTapped(withList list: List) {
         toggleListSelectionDrawer()
         Persistence.addStockToList(list: list, stock: stock!)

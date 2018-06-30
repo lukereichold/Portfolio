@@ -45,7 +45,7 @@ final class ListSelectionViewController: UIViewController {
     }
 
     private func setupCloseButton() {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         button.setTitle(String.ionicon(with: .closeRound), for: .normal)
         button.titleLabel?.font = .ionicon(of: 26)
         button.setTitleColor(UIColor.NavBar.buttonNormal, for: .normal)
@@ -56,7 +56,7 @@ final class ListSelectionViewController: UIViewController {
     }
 
     private func setupAddButton() {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         button.setTitle(String.ionicon(with: .plusRound), for: .normal)
         button.titleLabel?.font = .ionicon(of: 28)
         button.setTitleColor(UIColor.NavBar.buttonHighlighted, for: .normal)
