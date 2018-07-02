@@ -40,6 +40,9 @@ final class AnimatingPlusButton: UIControl {
 
     private func setup() {
         backgroundColor = .clear
+        isAccessibilityElement = true
+        accessibilityLabel = "Add to list"
+        accessibilityTraits |= UIAccessibilityTraitButton
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
         iconView.font = .ionicon(of: 30)

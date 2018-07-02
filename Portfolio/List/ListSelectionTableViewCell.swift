@@ -25,6 +25,11 @@ final class ListSelectionTableViewCell: UITableViewCell {
         nameLabel.text = data.name
         symbolsCountLabel.text = listCountString(for: data)
         selectedLabel.isHidden = !data.isSelected
+
+        accessibilityTraits &= ~UIAccessibilityTraitSelected
+        if data.isSelected {
+            accessibilityTraits |= UIAccessibilityTraitSelected
+        }
     }
 
     private func listCountString(for list: List) -> String {

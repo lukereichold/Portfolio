@@ -32,6 +32,9 @@ final class FloatingButton: UIControl {
         applyShadow()
         setButtonImage()
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        isAccessibilityElement = true
+        accessibilityLabel = "Search"
+        accessibilityTraits |= UIAccessibilityTraitButton
     }
 
     @objc private func buttonTapped() {
