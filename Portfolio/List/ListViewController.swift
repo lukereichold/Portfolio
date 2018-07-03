@@ -52,8 +52,9 @@ final class ListViewController: UIViewController {
 
     // Show placeholder when list becomes empty (don't need to reload after every removal)
     private func stockWasRemoved() {
-        stocks = stocksInCurrentList()
-        if stocks.isEmpty {
+        let currentStocks = stocksInCurrentList()
+        if currentStocks.isEmpty {
+            stocks = currentStocks
             refreshTableData()
         }
     }
