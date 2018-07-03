@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE2062E2BA23AB70249C52179D96634C"
+               BlueprintIdentifier = "CAA0EF6C40D4A3C41C4B70E7B5A23905"
                BlueprintName = "PullToDismiss"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "PullToDismiss.framework">

@@ -12,6 +12,7 @@ target 'Portfolio' do
   pod 'Piano', '~> 1.5'
   pod 'PullToDismiss', '~> 2.1'
   pod 'Parchment'
+  pod 'SwiftMessages'
 
   target 'PortfolioTests' do
     inherit! :search_paths

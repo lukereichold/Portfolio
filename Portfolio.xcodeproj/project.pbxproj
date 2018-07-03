@@ -29,6 +29,8 @@
 		C39D5A7C20C1E7FA0069E75F /* StockBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7B20C1E7F90069E75F /* StockBaseViewController.swift */; };
 		C39D5A7E20C73F5F0069E75F /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7D20C73F5F0069E75F /* Position.swift */; };
 		C39D5A8020C7444E0069E75F /* ListSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */; };
+		C3AA21E720EAE9D40043501A /* NotificationBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AA21E620EAE9D40043501A /* NotificationBannerFactory.swift */; };
+		C3AA21E920EAEEDC0043501A /* NotificationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AA21E820EAEEDC0043501A /* NotificationBanner.xib */; };
 		C3AE5BBF2097F48C003605F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */; };
 		C3AE5BC12097F48C003605F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE5BC02097F48C003605F2 /* ListViewController.swift */; };
 		C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE5BC22097F48C003605F2 /* Main.storyboard */; };
@@ -75,6 +77,8 @@
 		C39D5A7B20C1E7F90069E75F /* StockBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBaseViewController.swift; sourceTree = "<group>"; };
 		C39D5A7D20C73F5F0069E75F /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionPickerView.swift; sourceTree = "<group>"; };
+		C3AA21E620EAE9D40043501A /* NotificationBannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerFactory.swift; sourceTree = "<group>"; };
+		C3AA21E820EAEEDC0043501A /* NotificationBanner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationBanner.xib; sourceTree = "<group>"; };
 		C3AE5BBB2097F48C003605F2 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AE5BBE2097F48C003605F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3AE5BC02097F48C003605F2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		C307047820B9DE9000BEA5B3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C3AA21E620EAE9D40043501A /* NotificationBannerFactory.swift */,
 				C307047420B9DA6900BEA5B3 /* NavigationBarCustomizer.swift */,
 				C307047620B9DE8B00BEA5B3 /* UIColor+Extension.swift */,
 				C307047920B9E94900BEA5B3 /* UIFont+Extension.swift */,
@@ -163,6 +168,7 @@
 				C39D5A7F20C7444E0069E75F /* ListSelectionPickerView.swift */,
 				C307047B20BA06D900BEA5B3 /* NavigationBarTitleView.swift */,
 				C307048A20BC550E00BEA5B3 /* FloatingButton.swift */,
+				C3AA21E820EAEEDC0043501A /* NotificationBanner.xib */,
 			);
 			path = "Accessory Views";
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AA21E920EAEEDC0043501A /* NotificationBanner.xib in Resources */,
 				C3AE5BCC2097F48F003605F2 /* LaunchScreen.storyboard in Resources */,
 				C3AE5BC92097F48F003605F2 /* Assets.xcassets in Resources */,
 				C3AE5BC42097F48C003605F2 /* Main.storyboard in Resources */,
@@ -385,6 +392,7 @@
 				"${BUILT_PRODUCTS_DIR}/Piano/Piano.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -396,6 +404,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Piano.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -418,6 +427,7 @@
 				C39D5A7A20C1DDF20069E75F /* SymbolSelectionTableViewCell.swift in Sources */,
 				C307048920BC547000BEA5B3 /* UIViewController+Extension.swift in Sources */,
 				C37550D220BC9FBD002C637B /* ListSelectionViewController.swift in Sources */,
+				C3AA21E720EAE9D40043501A /* NotificationBannerFactory.swift in Sources */,
 				C307047720B9DE8B00BEA5B3 /* UIColor+Extension.swift in Sources */,
 				C39085E120E6D185008040DF /* UIView+Extension.swift in Sources */,
 				C33D407520C0C2CA0006F615 /* ListManager.swift in Sources */,

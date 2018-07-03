@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portfolio/List/SymbolSearchViewController.swift"
-            timestampString = "552008506.788148"
+            filePath = "Portfolio/List/StockDetailViewController.swift"
+            timestampString = "552090227.8788871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "setupNavBar()"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "toggleListSelectionDrawer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portfolio/List/StockDetailViewController.swift"
-            timestampString = "552090227.8788871"
+            filePath = "Portfolio/Helpers/NotificationView.swift"
+            timestampString = "552267216.612458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "toggleListSelectionDrawer()"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "init(withStock:listName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

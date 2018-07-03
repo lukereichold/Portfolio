@@ -1,5 +1,6 @@
 import UIKit
 import Piano
+import SwiftMessages
 
 protocol StockDetailViewControllerObserver: class {
     func currentListUpdated()
@@ -33,6 +34,8 @@ final class StockBaseViewController: UIViewController {
         NavigationBarCustomizer.customizeStockDetailScreen(forController: self, title: stock!.symbol)
         setupAddToListButton()
     }
+
+    // MARK: - Add to list functionality
 
     private func setupListSelectionContainer() {
         listSelectionContainerBottomConstraint.constant = -listSelectionContainer.frame.height
@@ -74,6 +77,18 @@ final class StockBaseViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+
+    private func showListAdditionSuccessBanner(forList list: String) {
+
+        let view = NotificationBannerFactory.stockAddedBanner(withStock: stock!.symbol, list: list)
+        var config = SwiftMessages.defaultConfig
+        config.duration = .seconds(seconds: 1.5)
+        config.dimMode = .none
+        config.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
+        SwiftMessages.show(config: config, view: view)
+
+        🎹.play([.hapticFeedback(.impact(.light))])
+    }
 }
 
 extension StockBaseViewController: PlusButtonObserver {
@@ -91,6 +106,8 @@ extension StockBaseViewController: ListSelectionPickerViewDelegate {
         if list.isSelected {
             observer?.currentListUpdated()
         }
+
+        showListAdditionSuccessBanner(forList: list.name)
     }
 
     func dismissTapped() {

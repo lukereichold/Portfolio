@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
   - Disk (0.3.3)
-  - IoniconsKit (1.0.1)
+  - IoniconsKit (1.1.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
@@ -11,6 +11,9 @@ PODS:
   - Piano (1.7)
   - PullToDismiss (2.1)
   - Result (3.2.4)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
 
 DEPENDENCIES:
   - Disk (~> 0.3.3)
@@ -19,6 +22,7 @@ DEPENDENCIES:
   - Parchment
   - Piano (~> 1.5)
   - PullToDismiss (~> 2.1)
+  - SwiftMessages
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,17 +34,19 @@ SPEC REPOS:
     - Piano
     - PullToDismiss
     - Result
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
-  IoniconsKit: 7662b7b5d5760fd200b76c77bda77c4f5e02c448
+  IoniconsKit: 11e04bb11af3d052bcdd34a837e0421affe6f3bd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Parchment: 3c84b1fd55182e91b2e0f3bf1e4034c387151a46
   Piano: 857bf066ad5c42298127ebd0936115bc7f5ec89d
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
 
-PODFILE CHECKSUM: 0b30aa66fc08e61b880fb3c04a181449f1ac45f7
+PODFILE CHECKSUM: 4944168adc8a82100e90ecc3caa6757c02383b32
 
 COCOAPODS: 1.5.2
