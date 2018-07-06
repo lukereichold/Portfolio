@@ -1,6 +1,7 @@
 import UIKit
 import Piano
 import SwiftMessages
+import Parchment
 
 protocol StockDetailViewControllerObserver: class {
     func currentListUpdated()
@@ -28,6 +29,33 @@ final class StockBaseViewController: UIViewController {
 
         nameLabel.text = stock!.name
         setupListSelectionContainer()
+        setupPagingControl()
+    }
+
+    private func setupPagingControl() {
+        let vc1 = UIViewController()
+        vc1.title = "Charts"
+        let vc2 = UIViewController()
+        vc2.title = "Positions"
+        let vc3 = UIViewController()
+        vc3.title = "Alerts"
+        let vc4 = UIViewController()
+        vc4.title = "News"
+
+        let pagingViewController = FixedPagingViewController(viewControllers: [
+            vc1, vc2, vc3, vc4
+            ])
+        pagingViewController.menuItemSize = .sizeToFit(minWidth: 90, height: 40)
+
+        add(pagingViewController)
+
+        pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pagingViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pagingViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pagingViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            ])
     }
 
     private func setup() {
